@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Executive Architect - Input Data Karyawan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error": "#b31b25",
+                        "surface-variant": "#d3dcff",
+                        "inverse-primary": "#3591ff",
+                        "surface-container-highest": "#d3dcff",
+                        "background": "#f6f6ff",
+                        "tertiary-fixed-dim": "#dc8ef0",
+                        "on-secondary-fixed-variant": "#1c4aab",
+                        "secondary-container": "#c3d0ff",
+                        "on-primary-container": "#002349",
+                        "on-primary": "#eff2ff",
+                        "surface-tint": "#005bae",
+                        "on-surface": "#202d51",
+                        "error-container": "#fb5151",
+                        "on-tertiary-container": "#5a1170",
+                        "surface": "#f6f6ff",
+                        "primary-fixed-dim": "#3e93ff",
+                        "on-surface-variant": "#4d5a81",
+                        "error-dim": "#9f0519",
+                        "secondary-fixed-dim": "#afc2ff",
+                        "primary-dim": "#004f99",
+                        "primary-fixed": "#60a1ff",
+                        "surface-container-low": "#eef0ff",
+                        "secondary-fixed": "#c3d0ff",
+                        "inverse-on-surface": "#8f9cc6",
+                        "inverse-surface": "#000c2d",
+                        "on-primary-fixed-variant": "#002c5a",
+                        "primary": "#005bae",
+                        "secondary": "#2b56b7",
+                        "on-secondary-fixed": "#002e7d",
+                        "tertiary-fixed": "#ea9bff",
+                        "on-tertiary-fixed": "#3b004d",
+                        "surface-container": "#e2e7ff",
+                        "surface-container-high": "#dae1ff",
+                        "on-secondary": "#f1f2ff",
+                        "tertiary-container": "#ea9bff",
+                        "on-error-container": "#570008",
+                        "on-tertiary-fixed-variant": "#641e7a",
+                        "primary-container": "#60a1ff",
+                        "surface-dim": "#c7d3ff",
+                        "on-tertiary": "#ffedfd",
+                        "on-primary-fixed": "#000000",
+                        "tertiary": "#843d99",
+                        "outline-variant": "#9facd7",
+                        "outline": "#69769e",
+                        "on-secondary-container": "#0940a2",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-dim": "#76308c",
+                        "on-background": "#202d51",
+                        "on-error": "#ffefee",
+                        "secondary-dim": "#1a49aa",
+                        "surface-bright": "#f6f6ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f6f6ff; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .tab-active { color: #005bae; font-weight: 600; border-bottom: 2px solid #005bae; }
+        .side-nav-active { border-left: 4px solid #0058be; background: rgba(30, 41, 59, 0.5); color: white; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-40 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md shadow-sm flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-slate-50">Executive Architect</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 font-inter" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 font-inter" href="#">Analytics</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 font-inter" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined text-slate-600">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined text-slate-600">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden">
+<img alt="Employee Profile" class="w-full h-full object-cover" data-alt="professional portrait of a corporate executive in a modern office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAklK1j3u-3T82gnZhUi-TgmIVmNfeU5SqgCQqrbgp4IupF78X_KqedtF3cwGDQl2ZxhPlRgn605nn2EBYcZxFz-m9_2IceMfb21PuNIqhPjjpAV2--xYwJaShujCT6wNAvPX-xC1R05O7c0dsSuDlJjc05JFFLOHcrpF4SoxRlilnsC1tQrHWtWgP2-Plxl-vABmJzCUKqNjN1xnZgq4O0wyqamMkOZRYTiraQWNUCUXlumvgjCOo9EhpVKyCdQ4Xtp2h6y198j94"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-50 bg-slate-900 dark:bg-slate-950 flex flex-col h-full py-6">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">architecture</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-white leading-tight">Global HR</h2>
+<p class="text-[10px] uppercase tracking-widest text-slate-400">Admin Console</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="side-nav-active flex items-center gap-3 text-white py-3 px-6 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-inter font-medium tracking-wide text-sm">Directory</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-3 px-6 hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-inter font-medium tracking-wide text-sm">Payroll</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-3 px-6 hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-inter font-medium tracking-wide text-sm">Performance</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-3 px-6 hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-inter font-medium tracking-wide text-sm">Time Off</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-3 px-6 hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-inter font-medium tracking-wide text-sm">Documents</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-1">
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-2 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+<span class="font-inter font-medium tracking-wide text-sm">Help Center</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-2 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span class="font-inter font-medium tracking-wide text-sm">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 pt-20 px-10 pb-12 min-h-screen">
+<header class="mb-8">
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-2">
+<span>Directory</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span>Tambah Karyawan Baru</span>
+</div>
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight">Input Data Karyawan</h1>
+</header>
+<!-- Tabs Navigation -->
+<div class="flex gap-8 border-b border-outline-variant/15 mb-8">
+<button class="pb-3 text-on-surface-variant hover:text-primary transition-colors font-medium">Informasi Pribadi</button>
+<button class="pb-3 text-on-surface-variant hover:text-primary transition-colors font-medium">Pekerjaan</button>
+<button class="pb-3 tab-active">Keuangan &amp; Kontak</button>
+<button class="pb-3 text-on-surface-variant hover:text-primary transition-colors font-medium">Dokumen</button>
+</div>
+<!-- Form Content -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Form Fields -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Section: Keuangan & Perbankan -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border-b-2 border-transparent hover:border-secondary transition-all duration-300">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-surface-container-low rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Informasi Keuangan</h3>
+<p class="text-sm text-on-surface-variant">Detail perbankan dan jaminan sosial karyawan.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Nama Bank</label>
+<select class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 transition-colors font-body">
+<option disabled="" selected="" value="">Pilih Bank</option>
+<option>Bank Central Asia (BCA)</option>
+<option>Bank Mandiri</option>
+<option>Bank Negara Indonesia (BNI)</option>
+<option>Bank Rakyat Indonesia (BRI)</option>
+<option>Bank Syariah Indonesia (BSI)</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">No. Rekening</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 transition-colors font-body" placeholder="Contoh: 1234567890" type="text"/>
+</div>
+<div class="md:col-span-2 space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Atas Nama Rekening</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 transition-colors font-body" placeholder="Sesuai buku tabungan" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">No. BPJS Ketenagakerjaan</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 transition-colors font-body" placeholder="11 digit nomor" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">No. BPJS Kesehatan</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 transition-colors font-body" placeholder="13 digit nomor" type="text"/>
+</div>
+</div>
+</section>
+<!-- Section: Kontak Darurat -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border-b-2 border-transparent hover:border-secondary transition-all duration-300">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-surface-container-low rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">contact_emergency</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Kontak Darurat</h3>
+<p class="text-sm text-on-surface-variant">Orang yang dapat dihubungi dalam situasi mendesak.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Nama Lengkap</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 transition-colors font-body" placeholder="Nama kontak" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Hubungan</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 transition-colors font-body" placeholder="Contoh: Orang Tua, Pasangan" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">No. Telepon</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 transition-colors font-body" placeholder="0812xxxx" type="tel"/>
+</div>
+</div>
+</section>
+<!-- Action Buttons -->
+<div class="flex justify-end gap-4 mt-8">
+<button class="px-8 py-3 text-sm font-semibold text-on-surface hover:bg-surface-container transition-all rounded-xl border border-outline-variant/30">
+                        Simpan Draft
+                    </button>
+<button class="px-10 py-3 text-sm font-semibold text-white bg-gradient-to-br from-primary to-primary-container hover:shadow-lg hover:scale-[1.02] active:scale-95 transition-all rounded-xl">
+                        Simpan &amp; Lanjutkan
+                    </button>
+</div>
+</div>
+<!-- Right Column: Sidebar Info / Guide -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6 border border-white/40">
+<h4 class="font-bold text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">info</span>
+                        Petunjuk Pengisian
+                    </h4>
+<ul class="space-y-4 text-sm text-on-surface-variant leading-relaxed">
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full mt-2 shrink-0"></span>
+<span>Pastikan nomor rekening sesuai dengan kartu identitas karyawan untuk menghindari kegagalan sistem payroll.</span>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full mt-2 shrink-0"></span>
+<span>Nomor BPJS sangat kritikal untuk perhitungan iuran otomatis setiap bulan.</span>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full mt-2 shrink-0"></span>
+<span>Sediakan setidaknya satu kontak darurat yang aktif dan dapat dihubungi 24/7.</span>
+</li>
+</ul>
+</div>
+<div class="relative overflow-hidden rounded-xl h-48 group">
+<img alt="Executive Office" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="high-end minimalist office space with floor to ceiling windows showing a metropolitan skyline at dusk with sophisticated blue ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz6zwvOPrSJGtJKRsLJvIDj36YES4xtXPoj3A9mfbsOo-Vl1DnIt30nPnGwrmxvhYg7sNL53HVUw3cb2hSuk-fCnPHqPyt1AuXNKwcR8kK3jUGnItBG_qyh3iZyzQm6tl6_RYOyFS0mX7jsjBoWPcou3tb-WXOj-nh5Z1aXi_WDIBr4ARAR90gWu2Pby1lDuqoHE8oN0pMbnQTvl0gjpGSbEIy3TUc9gIRLMRHaPPJl65yJPJzV5gInTAT7_wkDjRFiu0GdR7qgTM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-6">
+<p class="text-white text-xs font-medium tracking-wide">Executive Architect Dashboard v2.4.1</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Shadow/Separation -->
+<div class="fixed top-16 left-0 right-0 h-px bg-slate-200/20 pointer-events-none z-30"></div>
+</body></html>

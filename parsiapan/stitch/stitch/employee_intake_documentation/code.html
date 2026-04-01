@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employee Intake - Documentation | Executive Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#e2e7ff",
+              "surface-container-highest": "#d3dcff",
+              "surface-container-high": "#dae1ff",
+              "on-primary-fixed": "#000000",
+              "on-secondary-fixed": "#002e7d",
+              "error": "#b31b25",
+              "tertiary-container": "#ea9bff",
+              "surface-bright": "#f6f6ff",
+              "primary-dim": "#004f99",
+              "on-primary-container": "#002349",
+              "surface-variant": "#d3dcff",
+              "outline": "#69769e",
+              "inverse-on-surface": "#8f9cc6",
+              "secondary-fixed": "#c3d0ff",
+              "surface": "#f6f6ff",
+              "background": "#f6f6ff",
+              "secondary-container": "#c3d0ff",
+              "primary": "#005bae",
+              "on-secondary-container": "#0940a2",
+              "error-dim": "#9f0519",
+              "on-error-container": "#570008",
+              "on-secondary": "#f1f2ff",
+              "secondary": "#2b56b7",
+              "on-tertiary-container": "#5a1170",
+              "secondary-dim": "#1a49aa",
+              "error-container": "#fb5151",
+              "on-primary-fixed-variant": "#002c5a",
+              "tertiary-dim": "#76308c",
+              "tertiary": "#843d99",
+              "on-error": "#ffefee",
+              "on-secondary-fixed-variant": "#1c4aab",
+              "tertiary-fixed-dim": "#dc8ef0",
+              "primary-container": "#60a1ff",
+              "surface-tint": "#005bae",
+              "surface-dim": "#c7d3ff",
+              "primary-fixed": "#60a1ff",
+              "inverse-surface": "#000c2d",
+              "on-primary": "#eff2ff",
+              "on-tertiary-fixed": "#3b004d",
+              "inverse-primary": "#3591ff",
+              "on-surface-variant": "#4d5a81",
+              "on-surface": "#202d51",
+              "outline-variant": "#9facd7",
+              "on-tertiary": "#ffedfd",
+              "on-background": "#202d51",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#afc2ff",
+              "on-tertiary-fixed-variant": "#641e7a",
+              "tertiary-fixed": "#ea9bff",
+              "primary-fixed-dim": "#3e93ff",
+              "surface-container-low": "#eef0ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar (Authority: JSON + Design System) -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-[#1e293b] flex flex-col z-50">
+<div class="p-8">
+<h1 class="text-lg font-bold text-white tracking-widest uppercase">The Architect</h1>
+<p class="text-xs text-slate-400 mt-1 font-['Manrope']">HR Intelligence</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Navigation items mapping from JSON -->
+<a class="flex items-center gap-3 px-8 py-3 text-slate-400 opacity-80 hover:bg-white/10 hover:text-white transition-colors font-['Manrope'] tracking-tight text-sm font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-8 py-3 border-l-4 border-blue-600 bg-white/5 text-blue-400 font-['Manrope'] tracking-tight text-sm font-medium" href="#">
+<span class="material-symbols-outlined">group</span> Employees
+            </a>
+<a class="flex items-center gap-3 px-8 py-3 text-slate-400 opacity-80 hover:bg-white/10 hover:text-white transition-colors font-['Manrope'] tracking-tight text-sm font-medium" href="#">
+<span class="material-symbols-outlined">calendar_today</span> Attendance
+            </a>
+<a class="flex items-center gap-3 px-8 py-3 text-slate-400 opacity-80 hover:bg-white/10 hover:text-white transition-colors font-['Manrope'] tracking-tight text-sm font-medium" href="#">
+<span class="material-symbols-outlined">event_busy</span> Leaves
+            </a>
+<a class="flex items-center gap-3 px-8 py-3 text-slate-400 opacity-80 hover:bg-white/10 hover:text-white transition-colors font-['Manrope'] tracking-tight text-sm font-medium" href="#">
+<span class="material-symbols-outlined">payments</span> Payroll
+            </a>
+<a class="flex items-center gap-3 px-8 py-3 text-slate-400 opacity-80 hover:bg-white/10 hover:text-white transition-colors font-['Manrope'] tracking-tight text-sm font-medium" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+</nav>
+<div class="mt-auto p-8 border-t border-white/5 space-y-4">
+<a class="flex items-center gap-3 text-slate-400 hover:text-white text-sm transition-colors" href="#">
+<span class="material-symbols-outlined">help</span> Help
+            </a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-white text-sm transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- TopNavBar (Authority: JSON + Design System) -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-[#f7f9fb]/80 backdrop-blur-md flex justify-between items-center px-8">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Search documentation..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/30">
+<div class="text-right">
+<p class="text-sm font-bold text-on-surface leading-none">Executive Admin</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Level 4 Access</p>
+</div>
+<img alt="User Avatar" class="w-9 h-9 rounded-xl object-cover ring-2 ring-primary/10" data-alt="professional portrait of a high-level executive with short hair, wearing a navy blue suit, neutral studio background, soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwmi8dLxfXn1DgCRKV8YwoShbgzvszkvkhilUcBqRGc1HKl1wMxus0rwog-4cCi3-Qi5iulPYkvWjUWDjttgiyTrvMlGapBheJ1LqMhobHLBQDqatub3_d1MI6U3EMP9EMCEFMzbD7qB3ny-LpP7uQkSVzKcyafYmIA4uqo-OmYPR1eiCV6UD-a9-kl0GiO0cjLldmXqxzM_CRrqfcLMo7TSmNP-zrieWKBXKHJFQpX6QcC-xkon5PQ25YicI3BnKbcnF5CZY0gzU"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 pt-24 px-12 pb-12 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Stepper Header -->
+<div class="mb-12 flex items-center justify-between">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-2">Employee Intake</h2>
+<p class="text-on-surface-variant text-sm max-w-lg">Finalize the onboarding process by uploading all required legal and professional documentation for verification.</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex -space-x-1">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-xs font-bold ring-2 ring-surface">1</div>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-xs font-bold ring-2 ring-surface">2</div>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-xs font-bold ring-2 ring-surface">3</div>
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold ring-4 ring-primary/20 scale-110 z-10">4</div>
+</div>
+<span class="ml-4 text-sm font-semibold text-primary uppercase tracking-widest">Step 4: Documentation</span>
+</div>
+</div>
+<!-- Bento Grid Layout for Documentation (No-Line Rule) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Main Upload Area (Asymmetric Focus) -->
+<div class="md:col-span-2 space-y-6">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold text-on-surface">Legal Identification</h3>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase bg-surface-container px-2 py-1 rounded">Required</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- KTP Upload -->
+<div class="group relative bg-surface-container-low p-6 rounded-xl hover:bg-surface-container transition-colors border-b-2 border-outline-variant/20 focus-within:border-primary">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<span class="text-[10px] font-semibold text-error uppercase tracking-wider">Not Uploaded</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">KTP</h4>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">National Identification Card (Original Scan)</p>
+<button class="w-full flex items-center justify-center gap-2 bg-surface-container-lowest py-2 rounded-lg text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">upload</span> Upload File
+                                </button>
+</div>
+<!-- NPWP Upload -->
+<div class="group relative bg-surface-container-low p-6 rounded-xl hover:bg-surface-container transition-colors border-b-2 border-outline-variant/20 focus-within:border-primary">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<span class="text-[10px] font-semibold text-error uppercase tracking-wider">Not Uploaded</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">NPWP</h4>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">Taxpayer Identification Number Card</p>
+<button class="w-full flex items-center justify-center gap-2 bg-surface-container-lowest py-2 rounded-lg text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">upload</span> Upload File
+                                </button>
+</div>
+</div>
+</div>
+<!-- Professional & Health Docs -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<h3 class="text-xl font-bold text-on-surface mb-6">Employment &amp; Health</h3>
+<div class="space-y-4">
+<!-- List Layout for Detail density -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary-dim">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface text-sm">Surat Kontrak</h4>
+<p class="text-xs text-on-surface-variant">Signed employment agreement (All pages)</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-[10px] font-semibold text-error uppercase tracking-wider px-3 py-1 bg-error-container/10 rounded-full">Missing</span>
+<button class="text-primary hover:text-secondary font-bold text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">add_circle</span> Upload
+                                    </button>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary-dim">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface text-sm">BPJS</h4>
+<p class="text-xs text-on-surface-variant">Health &amp; Labor Insurance Membership</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-[10px] font-semibold text-error uppercase tracking-wider px-3 py-1 bg-error-container/10 rounded-full">Missing</span>
+<button class="text-primary hover:text-secondary font-bold text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">add_circle</span> Upload
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Panel (Education & Misc) -->
+<div class="space-y-6">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl">school</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2">Ijazah Terakhir</h3>
+<p class="text-xs text-on-surface-variant mb-8 leading-relaxed">Proof of highest educational attainment (Bachelor/Master Degree/etc).</p>
+<div class="aspect-square rounded-xl border-2 border-dashed border-outline-variant/30 bg-surface-container-low flex flex-col items-center justify-center text-center p-6 group cursor-pointer hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-4xl text-outline-variant group-hover:text-primary mb-4">cloud_upload</span>
+<span class="text-sm font-bold text-on-surface">Drag and drop</span>
+<span class="text-[10px] text-on-surface-variant">PDF, JPG (Max 5MB)</span>
+</div>
+</div>
+<div class="bg-primary/5 p-8 rounded-xl border border-primary/10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h3 class="text-sm font-bold text-primary uppercase tracking-widest">Other Documents</h3>
+</div>
+<p class="text-xs text-on-surface-variant mb-6">Any additional certifications or licenses relevant to your position.</p>
+<button class="w-full py-3 px-4 border border-primary/20 rounded-xl text-primary font-bold text-xs hover:bg-primary/5 transition-all">
+                            ADD EXTRA DOCUMENT
+                        </button>
+</div>
+</div>
+</div>
+<!-- Footer Controls (Submit Graduation / Primary Action) -->
+<div class="mt-12 pt-8 flex items-center justify-between">
+<button class="group flex items-center gap-3 text-on-surface-variant hover:text-on-surface transition-colors font-bold text-sm">
+<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+                    BACK TO STEP 3
+                </button>
+<div class="flex items-center gap-4">
+<button class="px-8 py-3 rounded-xl text-sm font-bold text-on-surface-variant hover:bg-surface-container-high transition-all">
+                        SAVE DRAFT
+                    </button>
+<!-- CTA with Signature Gradient -->
+<button class="px-10 py-3 rounded-xl text-sm font-bold text-on-primary bg-gradient-to-br from-primary to-primary-dim shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-3">
+                        SUBMIT REGISTRATION
+                        <span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+</div>
+</div>
+<!-- Compliance Note -->
+<div class="mt-12 p-6 bg-surface-container-low/50 rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined text-primary/60">verified_user</span>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">GDPR &amp; Data Privacy Compliance</p>
+<p class="text-xs text-on-surface-variant/80">All uploaded documents are encrypted and stored in accordance with local labor regulations and international data security standards. Access is restricted to authorized HR personnel only.</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

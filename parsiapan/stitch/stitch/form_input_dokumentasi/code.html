@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "error": "#b31b25",
+            "surface-variant": "#d3dcff",
+            "inverse-primary": "#3591ff",
+            "surface-container-highest": "#d3dcff",
+            "background": "#f6f6ff",
+            "tertiary-fixed-dim": "#dc8ef0",
+            "on-secondary-fixed-variant": "#1c4aab",
+            "secondary-container": "#c3d0ff",
+            "on-primary-container": "#002349",
+            "on-primary": "#eff2ff",
+            "surface-tint": "#005bae",
+            "on-surface": "#202d51",
+            "error-container": "#fb5151",
+            "on-tertiary-container": "#5a1170",
+            "surface": "#f6f6ff",
+            "primary-fixed-dim": "#3e93ff",
+            "on-surface-variant": "#4d5a81",
+            "error-dim": "#9f0519",
+            "secondary-fixed-dim": "#afc2ff",
+            "primary-dim": "#004f99",
+            "primary-fixed": "#60a1ff",
+            "surface-container-low": "#eef0ff",
+            "secondary-fixed": "#c3d0ff",
+            "inverse-on-surface": "#8f9cc6",
+            "inverse-surface": "#000c2d",
+            "on-primary-fixed-variant": "#002c5a",
+            "primary": "#005bae",
+            "secondary": "#2b56b7",
+            "on-secondary-fixed": "#002e7d",
+            "tertiary-fixed": "#ea9bff",
+            "on-tertiary-fixed": "#3b004d",
+            "surface-container": "#e2e7ff",
+            "surface-container-high": "#dae1ff",
+            "on-secondary": "#f1f2ff",
+            "tertiary-container": "#ea9bff",
+            "on-error-container": "#570008",
+            "on-tertiary-fixed-variant": "#641e7a",
+            "primary-container": "#60a1ff",
+            "surface-dim": "#c7d3ff",
+            "on-tertiary": "#ffedfd",
+            "on-primary-fixed": "#000000",
+            "tertiary": "#843d99",
+            "outline-variant": "#9facd7",
+            "outline": "#69769e",
+            "on-secondary-container": "#0940a2",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-dim": "#76308c",
+            "on-background": "#202d51",
+            "on-error": "#ffefee",
+            "secondary-dim": "#1a49aa",
+            "surface-bright": "#f6f6ff"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c5c6cd;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Side Navigation -->
+<aside class="fixed left-0 top-0 h-full w-64 z-50 bg-slate-900 dark:bg-slate-950 flex flex-col h-full py-6">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-white tracking-tight leading-none">Global HR</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold mt-1">Admin Console</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-3 px-4 transition-all duration-200 hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-inter font-medium tracking-wide text-sm">Directory</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-3 px-4 transition-all duration-200 hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-inter font-medium tracking-wide text-sm">Payroll</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-3 px-4 transition-all duration-200 hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="font-inter font-medium tracking-wide text-sm">Performance</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-3 px-4 transition-all duration-200 hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-inter font-medium tracking-wide text-sm">Time Off</span>
+</a>
+<a class="flex items-center gap-3 text-white border-l-4 border-blue-600 bg-slate-800/50 py-3 px-4 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-inter font-medium tracking-wide text-sm">Documents</span>
+</a>
+</nav>
+<div class="mt-auto px-4 space-y-1">
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-3 px-4 transition-all duration-200 hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-inter font-medium tracking-wide text-sm">Help Center</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-white py-3 px-4 transition-all duration-200 hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-inter font-medium tracking-wide text-sm">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 min-h-screen">
+<!-- Top Nav Bar -->
+<header class="fixed top-0 right-0 left-64 z-40 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md shadow-sm flex justify-between items-center px-8 h-16">
+<div class="flex items-center gap-8">
+<h2 class="font-manrope font-bold text-slate-900 text-xl tracking-tight">Executive Architect</h2>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 transition-colors" href="#">Analytics</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 transition-colors" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden ml-2 bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="professional male executive profile headshot in a bright office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCjp_fvzJVEoasfyiK4U1SuoeK0SR7hBZSE1EbjJeCa_Z6_yt6uPZMzc8_5LaQDnwzG6PmbPXXVBlBxsgeD1axzbdKa5wK_SfMZtIYXCoWsYvSb7TyF6INcs3CusYKUhbaSZavoS2baml9tB-bHu1IS3XB0EeU7A06CRlOMXvvmmoxkGkRzY7pteRDePHDWu3exAKLB95Nn1i6ya1NB4k5oUJ_SUuc247WhcTnOt3scoj5H8K0BixNgsM5EKFJJUHe5MU2d02eR4E"/>
+</div>
+</div>
+</header>
+<div class="pt-24 pb-12 px-8 max-w-6xl mx-auto">
+<!-- Employee Profile Summary Header -->
+<div class="relative mb-12 flex items-end gap-8 bg-surface-container-low rounded-xl p-8">
+<div class="relative shrink-0 -mb-16 ml-4">
+<div class="w-32 h-32 rounded-xl overflow-hidden border-4 border-surface-container-lowest shadow-xl">
+<img class="w-full h-full object-cover" data-alt="successful corporate woman smiling confidently for an employee spotlight feature" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv-mo7loiYlqY_2zB1I5Zx8yW1aJrfYags5TQoA2oShHe0Fr8PX_VHx6A3MmagdEh3EbA8psHJrAHXbFq12HREWBqaWkZuwTipqObrMSsN7v1RSXUPk8ehRI4eNSo9WbD2Ki8CWDnucEtbxGJf4juftg9R2BT0ymDDAzcjSSxfMWN1yR3ahDpF1t-RyOIoRjWHhkoy0XDtGW3NxToS-uZf1azvYNS7deEK47Qi5_8MEmRFltZa2PkZAFZ3CiNqP3Aw-vamw0Lvjvk"/>
+</div>
+</div>
+<div class="pb-2">
+<h1 class="text-3xl font-headline font-extrabold text-on-surface tracking-tight">Saraswati Putri</h1>
+<p class="text-on-surface-variant font-medium">Senior Architect • Engineering Division</p>
+</div>
+<div class="ml-auto pb-2 flex gap-3">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-surface-container text-on-secondary-fixed-variant">
+            Aktif
+          </span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-container text-on-primary-container">
+            Tetap
+          </span>
+</div>
+</div>
+<!-- Tabbed Navigation -->
+<div class="flex gap-8 mb-8 border-b border-outline-variant/15 px-4">
+<button class="pb-4 text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors">Data Diri</button>
+<button class="pb-4 text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors">Pekerjaan</button>
+<button class="pb-4 text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors">Payroll</button>
+<button class="pb-4 text-sm font-semibold text-primary border-b-2 border-primary">Dokumentasi</button>
+<button class="pb-4 text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors">Riwayat</button>
+</div>
+<!-- Document Content Canvas -->
+<div class="space-y-6">
+<div class="flex justify-between items-center mb-2">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface">Pusat Dokumentasi Karyawan</h3>
+<p class="text-sm text-on-surface-variant">Kelola dan unggah semua dokumen legalitas yang diperlukan.</p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">upload_file</span>
+            Unggah Masal
+          </button>
+</div>
+<!-- Bento Grid Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- KTP Card -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl border-b-2 border-outline-variant/20 hover:border-secondary transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">badge</span>
+</div>
+<span class="bg-surface-container text-on-secondary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Siap</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface mb-1">Kartu Tanda Penduduk</h4>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">Identitas utama kependudukan yang berlaku nasional.</p>
+<div class="flex items-center gap-3">
+<button class="flex-1 py-2 rounded-lg bg-surface-container-low text-on-surface-variant text-xs font-semibold hover:bg-surface-container transition-colors">Lihat Berkas</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<!-- NPWP Card -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl border-b-2 border-outline-variant/20 hover:border-secondary transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<span class="bg-surface-container text-on-secondary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Siap</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface mb-1">NPWP</h4>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">Nomor Pokok Wajib Pajak untuk keperluan administrasi fiskal.</p>
+<div class="flex items-center gap-3">
+<button class="flex-1 py-2 rounded-lg bg-surface-container-low text-on-surface-variant text-xs font-semibold hover:bg-surface-container transition-colors">Lihat Berkas</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<!-- Ijazah Card (Empty) -->
+<div class="group bg-surface-container-low/50 p-6 rounded-xl border-2 border-dashed border-outline-variant/30 hover:border-primary/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-highest rounded-lg text-outline">
+<span class="material-symbols-outlined">school</span>
+</div>
+<span class="bg-error-container text-on-error-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Belum Diunggah</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface mb-1">Ijazah Terakhir</h4>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">Bukti kelulusan pendidikan formal tertinggi yang diselesaikan.</p>
+<button class="w-full py-2.5 rounded-lg border border-primary text-primary text-xs font-bold hover:bg-primary hover:text-on-primary transition-all active:scale-[0.98]">
+              Unggah Sekarang
+            </button>
+</div>
+<!-- Surat Kontrak Card -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl border-b-2 border-outline-variant/20 hover:border-secondary transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<span class="bg-surface-container text-on-secondary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Siap</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface mb-1">Surat Kontrak Kerja</h4>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">Dokumen legalitas hubungan industrial antara karyawan &amp; perusahaan.</p>
+<div class="flex items-center gap-3">
+<button class="flex-1 py-2 rounded-lg bg-surface-container-low text-on-surface-variant text-xs font-semibold hover:bg-surface-container transition-colors">Lihat Berkas</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<!-- BPJS Card -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl border-b-2 border-outline-variant/20 hover:border-secondary transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<span class="bg-surface-container text-on-secondary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Siap</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface mb-1">Kartu BPJS</h4>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">Keanggotaan jaminan kesehatan dan ketenagakerjaan.</p>
+<div class="flex items-center gap-3">
+<button class="flex-1 py-2 rounded-lg bg-surface-container-low text-on-surface-variant text-xs font-semibold hover:bg-surface-container transition-colors">Lihat Berkas</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<!-- Additional / Placeholder Card -->
+<div class="group flex flex-col items-center justify-center p-6 rounded-xl border-2 border-dashed border-outline-variant/20 bg-surface-container-low/20">
+<span class="material-symbols-outlined text-4xl text-outline-variant mb-3">add_circle</span>
+<span class="text-sm font-bold text-outline">Tambah Dokumen Lainnya</span>
+<p class="text-[10px] text-on-surface-variant mt-1">PDF, JPG, atau PNG (Maks 5MB)</p>
+</div>
+</div>
+<!-- Floating Activity Card -->
+<div class="mt-12 bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="relative z-10 flex flex-col md:flex-row justify-between gap-8">
+<div class="flex-1">
+<h4 class="font-headline font-bold text-on-surface text-lg mb-4">Riwayat Dokumentasi</h4>
+<div class="space-y-6 relative ml-2">
+<div class="absolute left-0 top-0 bottom-0 w-px bg-outline-variant/20 ml-[7px]"></div>
+<div class="relative flex items-start gap-4">
+<div class="w-3.5 h-3.5 rounded-full bg-secondary border-4 border-surface-container-lowest z-10 mt-1"></div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Surat Kontrak diperbarui</p>
+<p class="text-[11px] text-on-surface-variant">Oleh: Admin HR • 12 Okt 2023</p>
+</div>
+</div>
+<div class="relative flex items-start gap-4">
+<div class="w-3.5 h-3.5 rounded-full bg-surface-dim border-4 border-surface-container-lowest z-10 mt-1"></div>
+<div>
+<p class="text-sm font-semibold text-on-surface-variant">Unggahan NPWP disetujui</p>
+<p class="text-[11px] text-on-surface-variant">Oleh: Finance System • 05 Okt 2023</p>
+</div>
+</div>
+<div class="relative flex items-start gap-4">
+<div class="w-3.5 h-3.5 rounded-full bg-surface-dim border-4 border-surface-container-lowest z-10 mt-1"></div>
+<div>
+<p class="text-sm font-semibold text-on-surface-variant">Pendaftaran akun karyawan baru</p>
+<p class="text-[11px] text-on-surface-variant">Oleh: HR Operations • 01 Okt 2023</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-64 bg-surface-container-low rounded-xl p-5 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-tighter font-bold text-on-secondary-fixed-variant">Status Verifikasi</p>
+<p class="text-sm font-extrabold text-on-surface">80% Selesai</p>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full mb-4 overflow-hidden">
+<div class="bg-secondary h-full w-[80%] rounded-full"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant text-center">Mohon lengkapi <span class="font-bold text-secondary">1 dokumen</span> lagi untuk mencapai verifikasi penuh.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Info -->
+<footer class="ml-64 py-6 px-8 border-t border-outline-variant/10 text-center">
+<p class="text-[11px] font-medium text-on-surface-variant tracking-wide">© 2024 Executive Architect HR System. All documentations are encrypted and securely stored.</p>
+</footer>
+</body></html>

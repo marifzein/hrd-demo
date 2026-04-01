@@ -1,0 +1,27 @@
+# Folder Persiapan & Catatan Pribadi
+/persiapan/
+/catatan/
+*.docx
+*.pdf
+
+# Environment Variables (Sangat Penting!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor & OS Metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Dependencies (Jika nanti pakai npm/node)
+node_modules/
+.pnpm-store/
+
+# Vercel & Build Output
+.vercel/
+dist/
+build/

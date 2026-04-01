@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employee Management | Executive Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#45474c",
+              "outline": "#75777d",
+              "surface-container-low": "#f2f4f6",
+              "surface-container-high": "#e6e8ea",
+              "on-background": "#191c1e",
+              "surface-dim": "#d8dadc",
+              "primary": "#091426",
+              "inverse-on-surface": "#eff1f3",
+              "on-secondary": "#ffffff",
+              "on-surface": "#191c1e",
+              "primary-fixed-dim": "#bcc7de",
+              "background": "#f7f9fb",
+              "error": "#ba1a1a",
+              "surface-tint": "#545f73",
+              "on-primary-fixed": "#111c2d",
+              "tertiary-container": "#20283c",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#fefcff",
+              "on-secondary-fixed-variant": "#004395",
+              "secondary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#3f465c",
+              "tertiary-fixed-dim": "#bec6e0",
+              "outline-variant": "#c5c6cd",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#adc6ff",
+              "surface-container": "#eceef0",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#dae2fd",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#001a42",
+              "surface-variant": "#e0e3e5",
+              "on-tertiary-container": "#888fa7",
+              "on-primary-container": "#8590a6",
+              "surface": "#f7f9fb",
+              "on-error": "#ffffff",
+              "surface-bright": "#f7f9fb",
+              "inverse-surface": "#2d3133",
+              "secondary-container": "#2170e4",
+              "secondary": "#0058be",
+              "primary-container": "#1e293b",
+              "on-tertiary-fixed": "#131b2e",
+              "surface-container-highest": "#e0e3e5",
+              "primary-fixed": "#d8e3fb",
+              "tertiary": "#0b1426",
+              "on-primary-fixed-variant": "#3c475a",
+              "inverse-primary": "#bcc7de"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-[#1e293b] dark:bg-slate-950 flex flex-col z-50">
+<div class="p-6">
+<div class="text-lg font-bold text-white tracking-widest uppercase mb-8">The Architect</div>
+<nav class="space-y-1">
+<!-- Dashboard Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 opacity-80 font-['Manrope'] tracking-tight text-sm font-medium hover:bg-white/10 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Employees Active -->
+<a class="flex items-center gap-3 px-4 py-3 border-l-4 border-blue-600 bg-white/5 text-blue-400 font-['Manrope'] tracking-tight text-sm font-medium transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 opacity-80 font-['Manrope'] tracking-tight text-sm font-medium hover:bg-white/10 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Attendance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 opacity-80 font-['Manrope'] tracking-tight text-sm font-medium hover:bg-white/10 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">event_busy</span>
+<span>Leaves</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 opacity-80 font-['Manrope'] tracking-tight text-sm font-medium hover:bg-white/10 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Payroll</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 opacity-80 font-['Manrope'] tracking-tight text-sm font-medium hover:bg-white/10 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-white/5">
+<div class="flex items-center gap-3 mb-6">
+<img alt="Executive Admin Profile" class="w-10 h-10 rounded-full object-cover" data-alt="professional portrait of a confident middle-aged executive man in a sharp blue suit with blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC37qA887NG293jhFIkzWtkeh-3DaANT-DRKaLoz5BQWNIZdRt-Lr5syfQnXNDjP3Ss5MbAbmi4bGe7SwgOouecYykzz97v_nUtVcRTPOJJh0Swoy5BP2G3BSKfggVTnD6iEgR1ms_T6Mr5rhG9vmEXtCrBXio_ytgQlco36cm7ozb8sHkqIo1y9cHyHMoAHppCCIIjh9tIRW6539sFmubli1KhJOLMm7QPtj0xVnjQANe9K30UBEJ32Rg-v9Dtay6ANX_y5VBsIXY"/>
+<div>
+<p class="text-white text-sm font-bold">The Architect</p>
+<p class="text-slate-400 text-xs">HR Intelligence</p>
+</div>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-400 opacity-80 font-['Manrope'] tracking-tight text-sm font-medium hover:bg-white/10 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+<span>Help</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-400 opacity-80 font-['Manrope'] tracking-tight text-sm font-medium hover:bg-white/10 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-[#f7f9fb]/80 backdrop-blur-md flex justify-between items-center px-8 border-b-0">
+<div class="flex items-center gap-4 w-1/2">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-secondary/20 transition-all" placeholder="Quick search employee..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-secondary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full border-2 border-surface"></span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-semibold text-on-surface">System Admin</span>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-outline-variant/50" data-alt="close up headshot of a smiling young professional man with short hair and modern glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy0bFbCDnTxb7eOM8GOA1WiUZcpkoVlTlpFEUC91UPgNRxe3K89C5nFHSLTO5pdSAl-IHqIhE4m9vBNDKTx3mWjtJDwgB7A2x98ber_MU0Ptkg_hqoSyqMVTNcq0ZXOh4bL6ajNKeWn6tK4AR1ahxqcTPQdJ5lA6vAKqk-ckwNq8e6vrFiBjvfOuOtXn5roZT1X0xgwKitzGfDs-PLeU6PpL8nv2E41WtohyRKnE6_qmZ30ubV7KGZyPH0OS_xoWpHOP8OH2WVYHE"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex items-center gap-2 text-xs text-on-surface-variant mb-2 font-label">
+<span>Organization</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-secondary font-medium">Employee Management</span>
+</nav>
+<h1 class="text-3xl font-extrabold text-primary tracking-tight font-headline">Employees</h1>
+<p class="text-on-surface-variant text-sm mt-1">Manage and monitor 1,248 workforce members across 12 departments.</p>
+</div>
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-br from-primary to-primary-container text-white font-bold text-sm shadow-lg shadow-primary/10 hover:shadow-xl hover:-translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-lg">person_add</span>
+                Add Employee
+            </button>
+</div>
+<!-- Filters Strip - Bento Inspired Asymmetry -->
+<div class="grid grid-cols-12 gap-4 mb-8">
+<div class="col-span-8 bg-surface-container-low p-4 rounded-xl flex items-center gap-4">
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-2 rounded-lg border-b-2 border-outline-variant focus-within:border-secondary transition-all flex-1">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider font-label">Department:</span>
+<select class="bg-transparent border-none text-sm font-medium focus:ring-0 p-0 pr-8">
+<option>All Departments</option>
+<option>Engineering</option>
+<option>Human Resources</option>
+<option>Product Design</option>
+<option>Finance</option>
+</select>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-2 rounded-lg border-b-2 border-outline-variant focus-within:border-secondary transition-all flex-1">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider font-label">Status:</span>
+<select class="bg-transparent border-none text-sm font-medium focus:ring-0 p-0 pr-8">
+<option>Any Status</option>
+<option>Active</option>
+<option>Probation</option>
+<option>Inactive</option>
+</select>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-2 rounded-lg border-b-2 border-outline-variant focus-within:border-secondary transition-all flex-1">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider font-label">Position:</span>
+<select class="bg-transparent border-none text-sm font-medium focus:ring-0 p-0 pr-8">
+<option>Senior Manager</option>
+<option>Lead Developer</option>
+<option>Specialist</option>
+</select>
+</div>
+</div>
+<div class="col-span-4 bg-secondary-container/10 p-4 rounded-xl flex items-center justify-between border border-secondary/10">
+<div>
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Total Active</p>
+<p class="text-2xl font-extrabold text-primary">1,102</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+</div>
+</div>
+<!-- Table Canvas -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high">
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest font-label">NIK</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest font-label">Name</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest font-label">Department</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest font-label">Position</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest font-label">Status</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest font-label">Join Date</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest font-label text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<span class="text-sm font-mono font-medium text-secondary">EMP-2024-001</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Employee Avatar" class="w-8 h-8 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="portrait of a young smiling man in a white t-shirt with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4V4JIDHYqkTEJeHnQN3KcSyuwp4gc63yOnQSirjdRgCC-aI5-d68wUWtiySRLd0dpiL3nS7zcZe10G3Pd8FuXTUafXU-arSUH0abeopJX77BEjOxVJ2ORbXUyT4BXdw1xhwIKV8AlfFjxoCvTXVhM-4ppPw7Wqx9nYJ4Y0D1iTvX1_qT_0QB99RbrKM0v---3J_qcSvaPXwO3oZed9kiIIfKdCpoi3OmNI1xWBIgyxOH8gf2vwo3_eOIoIEJbjjDUZjN2u8m5JUw"/>
+<div>
+<p class="text-sm font-bold text-primary">Alexander Thorne</p>
+<p class="text-[10px] text-on-surface-variant">alexander.t@architect.io</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface font-medium">Engineering</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface-variant">Lead Fullstack Architect</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-surface-container text-on-secondary-fixed-variant">
+                                Active
+                            </span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface-variant">Jan 12, 2024</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl">edit_square</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<span class="text-sm font-mono font-medium text-secondary">EMP-2024-015</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Employee Avatar" class="w-8 h-8 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="headshot of a happy young woman with dark wavy hair wearing a yellow top with natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByuxc0bcA97oUjW1QEcPk1g-2JI7X6-QS8PIgixpr9b05pi7NV2MF74tSzjvr-vtYLxBvtvmd_nkI-a6f4CMgaei2sFkyMLJVZZrPozSfVprtFJPwUe5mmaIX2yXukA8fmT1h8Pvy7MUYWFMqr8Ih4jWjZ70o-j-C0an_tkBT4DntaOSpSAmzBdVxPa9bQt55X8OXMVirKZwdOmTWcvxgdpvgGBtkQ-HfCO1CGerRBCklP9OHk5giqBjPs5Yn4EzHJOQovZtueXks"/>
+<div>
+<p class="text-sm font-bold text-primary">Sarah Jenkins</p>
+<p class="text-[10px] text-on-surface-variant">s.jenkins@architect.io</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface font-medium">Product Design</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface-variant">Senior UI Curator</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary-fixed text-on-secondary-fixed">
+                                Probation
+                            </span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface-variant">Mar 05, 2024</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl">edit_square</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<span class="text-sm font-mono font-medium text-secondary">EMP-2023-142</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Employee Avatar" class="w-8 h-8 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="portrait of a man with short brown hair and beard wearing a black shirt in a moody office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1fjze3s7sIPUYhw9a0D2WHmqIUYi-gBIFPGwfrxwhhQHOarYLE3aNYh9W4JD8DC3uoTfJ9ZYMpbkUVuN4rEjbADLEdHruPVqyZZEhR8kemA-FiUHNVlL10-2gQep3z7Y1C0F8nnZSt-2JwV6qZMS0yE5S7Hrq1-kjd6HR4tWd948lpC82L7JO4rx_PeUEcjpr7NqbCbTm24BlJsz2HWbLusMw_FEXuap-nJ3vtGh28F22GMdrALqt09bAHvIT91YAGXu3iaV53do"/>
+<div>
+<p class="text-sm font-bold text-primary">David Miller</p>
+<p class="text-[10px] text-on-surface-variant">d.miller@architect.io</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface font-medium">Human Resources</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface-variant">Talent Specialist</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container text-on-error-container">
+                                Inactive
+                            </span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface-variant">Nov 18, 2023</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl">edit_square</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<span class="text-sm font-mono font-medium text-secondary">EMP-2024-088</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Employee Avatar" class="w-8 h-8 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="professional corporate portrait of a black woman with elegant braids and a confident smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfXs0YEq5gKSHSglzpirWdonpbchWMB0vwBh1cBtZVIyd_63YDXrGYR6j5FsW_dVvO8o83RusolUDxATJelifdj0eLyKxN99zWy5jv99B7nSYUSLOGO6evci6oJE5IfuQt9HY5SoFJWRlvNp1mlkOEKEpU_EjJzWPTIAONyQtRCmATbdB7zXJpBOqVamD1J3l3LP7MDSjGYTQf5HFkqeq9b9PoV4FljlEFKxu-ciWhy5Zb9g4s5rfQaCCiNNQ57DciAaio3Sxlv7Q"/>
+<div>
+<p class="text-sm font-bold text-primary">Maya Williamson</p>
+<p class="text-[10px] text-on-surface-variant">m.williamson@architect.io</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface font-medium">Finance</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface-variant">Budget Controller</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-surface-container text-on-secondary-fixed-variant">
+                                Active
+                            </span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-on-surface-variant">Feb 20, 2024</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl">edit_square</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Shell -->
+<div class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
+<p class="text-xs text-on-surface-variant font-label">
+                    Showing <span class="font-bold text-primary">1 - 10</span> of <span class="font-bold text-primary">1,248</span> employees
+                </p>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white text-xs font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high text-xs font-bold">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high text-xs font-bold">3</button>
+<span class="px-2 text-on-surface-variant text-xs">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high text-xs font-bold">125</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Floating Stats - Small Contextual Cards -->
+<div class="mt-8 grid grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl border-l-4 border-secondary shadow-sm">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Onboarding This Month</p>
+<div class="flex items-baseline gap-2">
+<span class="text-xl font-extrabold text-primary">24</span>
+<span class="text-[10px] font-bold text-secondary">+12% vs last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl border-l-4 border-primary shadow-sm">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Contract Ending</p>
+<div class="flex items-baseline gap-2">
+<span class="text-xl font-extrabold text-primary">8</span>
+<span class="text-[10px] font-bold text-error">Requires review</span>
+</div>
+</div>
+<div class="col-span-2 bg-gradient-to-r from-primary-container to-primary p-4 rounded-xl text-white flex items-center justify-between shadow-lg">
+<div>
+<h4 class="text-sm font-bold font-headline">Intelligence Report</h4>
+<p class="text-xs text-on-primary-container">Employee turnover rate decreased by 4.2% this quarter.</p>
+</div>
+<button class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-all">
+                    View Data
+                </button>
+</div>
+</div>
+</main>
+</body></html>
