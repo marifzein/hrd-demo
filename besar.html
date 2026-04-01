@@ -1,0 +1,284 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Login | Executive Architect HR Intelligence</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              // --- PALET UTAMA UTSG ---
+              primary: "#091426", // Navy Deep (Profesional & Stabil)
+              secondary: "#FFC107", // Industrial Yellow (Energi Alat Berat)
+              accent: "#D32F2F", // Power Red (Tegas)
+
+              // --- WARNA PERMUKAAN (SURFACE) ---
+              background: "#F7F9FB", // Abu sangat muda (Nyaman di mata)
+              surface: "#FFFFFF", // Putih bersih untuk kartu
+              "surface-container": "#F2F4F6", // Abu muda untuk input field
+
+              // --- WARNA TEKS & OUTLINE ---
+              "on-primary": "#FFFFFF",
+              "on-secondary": "#091426",
+              "on-surface": "#191C1E",
+              "on-surface-variant": "#45474C",
+              outline: "#D1D5DB",
+
+              // --- STATUS ---
+              error: "#BA1A1A",
+              success: "#2E7D32",
+            },
+            fontFamily: {
+              headline: ["Manrope", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              label: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .auth-gradient {
+        background: linear-gradient(135deg, #091426 0%, #1e293b 100%);
+      }
+    </style>
+  </head>
+  <body class="bg-background font-body text-on-surface antialiased selection:bg-secondary/30">
+    <!-- <main class="min-h-screen flex items-center justify-center p-6 relative overflow-hidden"> -->
+    <main class="h-screen flex items-center justify-center p-4 md:p-8 relative overflow-hidden bg-background">
+      <!-- Background Architectural Elements -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 -left-48 w-[32rem] h-[32rem] bg-primary/5 rounded-full blur-[100px]"></div>
+      </div>
+      <!-- Auth Container -->
+      <!-- <div
+        class="w-full max-w-5xl flex flex-col md:flex-row bg-surface-container-lowest rounded-xl shadow-[0_20px_50px_-12px_rgba(25,28,30,0.08)] overflow-hidden relative z-10"
+      > -->
+      <div
+      class="w-full max-w-5xl h-auto flex flex-col md:flex-row bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden relative z-10 my-8"
+    >
+        <!-- Left Side: Editorial Branding Section -->
+        <!-- <div
+          class="hidden md:flex md:w-1/2 p-12 flex-col justify-between bg-surface-container-low border-r border-outline-variant/10"
+        > -->
+        <div
+        class="hidden md:flex md:w-1/2 py-16 px-10 flex-col justify-center bg-surface-container-low border-r border-outline-variant/10"
+      >
+          <div class="space-y-0">
+            <div class="inline-flex items-center gap-2">
+              <div class="w-10 h-10 auth-gradient rounded-lg flex justify-center">
+                <span class="material-symbols-outlined text-secondary text-4xl">front_loader</span>
+              </div>
+              <div class="grid grid-cols-1 grid-rows-2">
+                <span class="font-headline font-extrabold text-xl tracking-widest uppercase text-primary">UTSG </span>
+                <span class="font-11 text-sm">United Tractors Semen Gresik</span>
+              </div>
+            </div>
+            <div class="pt-0">
+              <h1 class="font-headline text-2xl font-extrabold leading-tight text-primary tracking-tight">
+                <!-- Elevating Human <br />Resources to <br />Intelligence. -->
+                Mentranformasikan Sumber Daya Manusia Menjadi Lebih Unggul.
+              </h1>
+              <p class="mt-6 text-on-surface-variant font-body leading-relaxed max-w-sm">
+                <!-- Welcome back to the Executive Architect. Manage your global workforce with editorial precision and
+                data-driven authority. -->
+                <!-- Selamat datang kembali di UTSG HR Intelligence System.
+                <br />Kelola SDM Anda dengan ketelitian yang tinggi untuk menghasilkan output keputusan strategis
+                berbasis data. -->
+              </p>
+            </div>
+          </div>
+          <div class="relative mt-2 rounded-xl overflow-hidden">
+            <img
+              alt="UTSG"
+              class="object-cover w-full h-full opacity-80 mix-blend-multiply"
+              data-alt="excavator"
+              src="img/utsg-login.webp"
+            />
+            <!-- <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div> -->
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+            <div
+              class="absolute bottom-0 left-4 right-4 bg-surface-container-lowest/30 backdrop-blur-md p-4 rounded-lg"
+            >
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-12 bg-secondary rounded-full"></div>
+                <div>
+                  <p class="text-[10px] uppercase tracking-widest font-bold">System Status</p>
+                  <p class="text-sm font-headline font-semibold text-primary">
+                    <!-- All HR Nodes Operating at Peak Efficiency -->
+                    Semua Node HR Beroperasi pada Efisiensi Optimal
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Side: Login Form -->
+        <div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+          <!-- Mobile Branding -->
+          <div class="md:hidden flex items-center gap-3 mb-10">
+            <div class="w-10 h-10 auth-gradient rounded-xl flex items-center justify-center shadow-lg">
+              <span class="material-symbols-outlined text-white">architecture</span>
+            </div>
+            <span class="font-headline font-extrabold text-2xl tracking-widest uppercase text-primary"
+              >The Architect</span
+            >
+          </div>
+          <div class="mb-10">
+            <h2 class="font-headline text-2xl font-bold text-primary">Secure Access</h2>
+            <!-- <p class="text-on-surface-variant text-sm mt-2">Enter your credentials to manage HR Intelligence.</p> -->
+            <p class="text-on-surface-variant text-sm mt-2">
+              Masukkan kredensial akun Anda untuk mengelola HR Intelligence..
+            </p>
+          </div>
+          <form class="space-y-6">
+            <!-- Username/Email Field -->
+            <div class="space-y-2">
+              <label
+                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                for="username"
+                >Username / Email</label
+              >
+              <div class="relative group">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <span
+                    class="material-symbols-outlined text-on-surface-variant/60 group-focus-within:text-secondary transition-colors"
+                    >person</span
+                  >
+                </div>
+                <input
+                  class="block w-full pl-11 pr-4 py-3.5 bg-surface-container-low border-0 border-b-2 border-outline-variant/30 focus:border-secondary focus:ring-0 rounded-t-xl transition-all duration-300 placeholder:text-outline-variant font-body text-sm"
+                  id="username"
+                  name="username"
+                  placeholder="e.g. john.doe@utsg.com"
+                  type="text"
+                />
+              </div>
+            </div>
+            <!-- Password Field -->
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <label
+                  class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                  for="password"
+                  >Password</label
+                >
+                <a class="text-xs font-semibold text-accent hover:text-primary transition-colors" href="#"
+                  >Reset Password</a
+                >
+              </div>
+              <div class="relative group">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <span
+                    class="material-symbols-outlined text-on-surface-variant/60 group-focus-within:text-secondary transition-colors"
+                    >lock</span
+                  >
+                </div>
+                <input
+                  class="block w-full pl-11 pr-12 py-3.5 bg-surface-container-low border-0 border-b-2 border-outline-variant/30 focus:border-secondary focus:ring-0 rounded-t-xl transition-all duration-300 placeholder:text-outline-variant font-body text-sm"
+                  id="password"
+                  name="password"
+                  placeholder="••••••••••••"
+                  type="password"
+                />
+                <button
+                  class="absolute inset-y-0 right-0 pr-4 flex items-center text-on-surface-variant/40 hover:text-on-surface transition-colors"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-lg">visibility</span>
+                </button>
+              </div>
+            </div>
+            <!-- Actions -->
+            <div class="flex items-center pt-2">
+              <label class="flex items-center cursor-pointer group">
+                <div class="relative">
+                  <input class="sr-only peer" type="checkbox" />
+                  <div
+                    class="w-5 h-5 bg-surface-container-high border border-outline-variant/50 rounded flex items-center justify-center peer-checked:bg-secondary peer-checked:border-secondary transition-all"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[14px] text-white opacity-0 peer-checked:opacity-100 transition-opacity"
+                      >check</span
+                    >
+                  </div>
+                </div>
+                <span
+                  class="ml-3 text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors"
+                  >Ingat Saya</span
+                >
+              </label>
+            </div>
+            <!-- Submit Button -->
+            <button
+              class="w-full auth-gradient text-white py-4 px-6 rounded-xl font-headline font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-3 shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-[0.98] transition-all"
+              type="submit"
+            >
+              Login
+              <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </button>
+          </form>
+          <!-- Support Footer -->
+          <div class="mt-12 flex flex-col items-center gap-4 text-center">
+            <p class="text-xs text-on-surface-variant/70 max-w-xs leading-relaxed">
+              <!-- Authorized users only. All activity is logged and monitored for security compliance. -->
+              Hanya untuk pengguna yang berwenang. Semua aktivitas dicatat dan dipantau untuk keamanan data.
+            </p>
+            <div class="flex items-center gap-6 mt-4">
+              <a
+                class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-base">help</span>
+                Help Desk
+              </a>
+              <div class="w-1 h-1 bg-outline-variant rounded-full"></div>
+              <a
+                class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-base">privacy_tip</span>
+                Security Policy
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Semantic Shell Suppression Logic: No NavBar/SideNav as per "Task-Focused/Transactional" rule -->
+  </body>
+</html>
