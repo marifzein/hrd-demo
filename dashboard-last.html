@@ -1,0 +1,564 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>UTSG - Dashboard HR Intelligence</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              secondary: "#2b56b7",
+              "secondary-yellow": "#FFC107",
+              tertiary: "#843d99",
+              "on-tertiary-container": "#5a1170",
+              "surface-container-high": "#dae1ff",
+              "primary-fixed-dim": "#3e93ff",
+              background: "#f6f6ff",
+              outline: "#69769e",
+              "inverse-surface": "#000c2d",
+              "primary-dim": "#004f99",
+              "primary-container": "#60a1ff",
+              "inverse-primary": "#3591ff",
+              error: "#b31b25",
+              "surface-tint": "#005bae",
+              "on-primary-fixed-variant": "#002c5a",
+              "on-tertiary-fixed": "#3b004d",
+              "tertiary-fixed": "#ea9bff",
+              "secondary-dim": "#1a49aa",
+              "on-primary-container": "#002349",
+              "surface-container-highest": "#d3dcff",
+              "surface-bright": "#f6f6ff",
+              surface: "#f6f6ff",
+              "secondary-container": "#c3d0ff",
+              "primary-fixed": "#60a1ff",
+              "surface-dim": "#c7d3ff",
+              "tertiary-dim": "#76308c",
+              "on-background": "#202d51",
+              "surface-container-low": "#eef0ff",
+              "on-secondary-fixed-variant": "#1c4aab",
+              "on-primary": "#eff2ff",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#c3d0ff",
+              "on-tertiary": "#ffedfd",
+              "tertiary-container": "#ea9bff",
+              "on-secondary": "#f1f2ff",
+              "on-error-container": "#570008",
+              "outline-variant": "#9facd7",
+              "on-error": "#ffefee",
+              "surface-container": "#e2e7ff",
+              "surface-variant": "#d3dcff",
+              "error-dim": "#9f0519",
+              "on-primary-fixed": "#000000",
+              "on-secondary-fixed": "#002e7d",
+              "secondary-fixed-dim": "#afc2ff",
+              "on-surface-variant": "#4d5a81",
+              "error-container": "#fb5151",
+              "tertiary-fixed-dim": "#dc8ef0",
+              "on-secondary-container": "#0940a2",
+              "inverse-on-surface": "#8f9cc6",
+              primary: "#005bae",
+              "on-tertiary-fixed-variant": "#641e7a",
+              "on-surface": "#202d51",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem" },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        background-color: #f6f6ff;
+        color: #202d51;
+        font-family: "Inter", sans-serif;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+  </head>
+  <body class="flex min-h-screen">
+    <!-- SideNavBar -->
+    <aside
+      class="bg-slate-900 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 overflow-y-auto flex flex-col py-6 z-50"
+    >
+      <div class="px-6 mb-8">
+        <h1 class="text-xl font-bold text-secondary-yellow dark:text-secondary-yellow font-manrope">UTSG</h1>
+        <p class="text-xs text-slate-400 font-inter tracking-wide mt-1 uppercase">HR Management System</p>
+      </div>
+      <nav class="flex-1">
+        <div class="space-y-1">
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 transition-colors duration-200"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+            <span class="font-inter text-sm tracking-wide">Dashboard</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 transition-colors duration-200"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="group">group</span>
+            <span class="font-inter text-sm tracking-wide">Employees</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-slate-50 border-l-4 border-blue-600 bg-slate-800/40"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="payments">payments</span>
+            <span class="font-inter text-sm tracking-wide">Payroll</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 transition-colors duration-200"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+            <span class="font-inter text-sm tracking-wide">Time Tracking</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 transition-colors duration-200"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="insights">insights</span>
+            <span class="font-inter text-sm tracking-wide">Performance</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 transition-colors duration-200"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="settings">settings</span>
+            <span class="font-inter text-sm tracking-wide">Settings</span>
+          </a>
+        </div>
+      </nav>
+      <div class="px-4 mt-auto">
+        <button
+          class="w-full py-3 px-4 bg-blue-600 text-white rounded-xl font-semibold text-sm flex items-center justify-center gap-2 active:opacity-80 transition-all"
+        >
+          <span class="material-symbols-outlined text-sm">add</span>
+          New Request
+        </button>
+      </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="flex-1 ml-64 min-h-screen">
+      <!-- TopNavBar -->
+      <header
+        class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm flex justify-between items-center px-8"
+      >
+        <div class="flex items-center gap-4 w-1/3">
+          <div class="relative w-full">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg"
+              >search</span
+            >
+            <input
+              class="w-full bg-slate-100 dark:bg-slate-800/30 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-600 transition-all"
+              placeholder="Search payroll records..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <button class="text-slate-500 hover:text-blue-600 transition-all relative">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+          </button>
+          <button class="text-slate-500 hover:text-blue-600 transition-all">
+            <span class="material-symbols-outlined">help_outline</span>
+          </button>
+          <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+            <div class="text-right">
+              <p class="text-sm font-semibold font-manrope">John Doe</p>
+              <p class="text-[10px] text-slate-500 uppercase tracking-wider">HRD Manager</p>
+            </div>
+            <img
+              alt="User Profile"
+              class="w-10 h-10 rounded-full object-cover"
+              data-alt="Close-up portrait of a professional man in a tailored suit with a confident expression and clean-cut hairstyle"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPi9StHQk-ZWDkcESXaFEGj24zWKUHkf0EPrijWgbPeWqatiQlkb34xsMt75r08MImiki_0Ks_OB22lWGX-Bmm7LxyttZJkQXAHpsQ8ds6CGGXdASLqd7u0LsWMobk6PIddGC-ptbcmL0IDKtytVhBKhm8yzZ1O6V-EVq4LhcCcWnMbNvmjNEDnQN7S7mfwDLVw-5xofk5sSho0oQJCjzhBkcI_EhQ8D4Q57jn-n3lj8kO6CNffSEuIaYrKEge3XD9Lr4jo80LOgU"
+            />
+          </div>
+        </div>
+      </header>
+      <!-- Canvas Container -->
+      <div class="pt-24 px-8 pb-12">
+        <!-- baru -->
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Total Karyawan -->
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start justify-between">
+            <div>
+              <p class="text-sm font-medium text-on-surface-variant mb-1">Total Karyawan</p>
+              <h3 class="text-3xl font-bold font-headline text-primary">450</h3>
+              <p class="text-xs text-green-600 mt-2 flex items-center gap-1 font-medium">
+                <span class="material-symbols-outlined text-xs">trending_up</span>
+                +12 bulan ini
+              </p>
+            </div>
+            <div class="p-3 bg-primary-container text-on-primary-container rounded-lg">
+              <span class="material-symbols-outlined">groups</span>
+            </div>
+          </div>
+          <!-- Kehadiran Hari Ini -->
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start justify-between">
+            <div>
+              <p class="text-sm font-medium text-on-surface-variant mb-1">Kehadiran Hari Ini</p>
+              <h3 class="text-3xl font-bold font-headline text-on-surface">94%</h3>
+              <div class="w-full bg-surface-container-highest h-1.5 rounded-full mt-4">
+                <div class="bg-primary h-full rounded-full" style="width: 94%"></div>
+              </div>
+            </div>
+            <div class="p-3 bg-secondary-container text-on-secondary-container rounded-lg">
+              <span class="material-symbols-outlined">event_available</span>
+            </div>
+          </div>
+          <!-- Pengajuan Pending -->
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start justify-between">
+            <div>
+              <p class="text-sm font-medium text-on-surface-variant mb-1">Pengajuan Pending</p>
+              <h3 class="text-3xl font-bold font-headline text-on-surface">12</h3>
+              <p class="text-xs text-secondary mt-2 font-medium">Membutuhkan persetujuan</p>
+            </div>
+            <div class="p-3 bg-tertiary-container text-on-tertiary-container rounded-lg">
+              <span class="material-symbols-outlined">pending_actions</span>
+            </div>
+          </div>
+          <!-- Anggaran Payroll -->
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start justify-between">
+            <div>
+              <p class="text-sm font-medium text-on-surface-variant mb-1">Anggaran Payroll</p>
+              <h3 class="text-3xl font-bold font-headline text-on-surface text-nowrap">Rp 1.2M</h3>
+              <p class="text-xs text-on-surface-variant mt-2 font-medium">Bulan berjalan</p>
+            </div>
+            <div class="p-3 bg-surface-container-high text-on-surface rounded-lg">
+              <span class="material-symbols-outlined">payments</span>
+            </div>
+          </div>
+        </section>
+        <!-- Charts & Graphs Section - Bento Grid Layout -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Turnover Report (Line Chart Simulation) -->
+          <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <div class="flex items-center justify-between mb-8">
+              <div>
+                <h4 class="font-headline font-bold text-lg">Laporan Turnover</h4>
+                <p class="text-sm text-on-surface-variant">Trend bulanan 12 bulan terakhir</p>
+              </div>
+              <div class="flex items-center gap-4 text-xs font-medium">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-primary"></span> Keluar
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-secondary"></span> Masuk
+                </div>
+              </div>
+            </div>
+            <!-- Line Chart Visual Simulation -->
+            <div class="relative h-64 w-full flex items-end justify-between px-2 pt-4 border-b border-outline-variant">
+              <div class="absolute inset-0 flex flex-col justify-between py-4 pointer-events-none">
+                <div class="border-t border-surface-container border-dashed w-full"></div>
+                <div class="border-t border-surface-container border-dashed w-full"></div>
+                <div class="border-t border-surface-container border-dashed w-full"></div>
+              </div>
+              <!-- Columns -->
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-16 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-24 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Jan</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-12 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-20 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Feb</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-10 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-28 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Mar</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-14 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-18 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Apr</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-8 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-22 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Mei</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-20 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-16 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Jun</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-18 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-12 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Jul</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-10 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-24 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Agu</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-14 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-18 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Sep</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-12 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-20 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Okt</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-16 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-14 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Nov</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-primary w-1.5 h-12 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-10 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Des</span>
+              </div>
+            </div>
+          </div>
+          <!-- Gender Ratio (Donut Chart Simulation) -->
+          <div
+            class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center"
+          >
+            <h4 class="font-headline font-bold text-lg mb-1">Rasio Gender</h4>
+            <p class="text-sm text-on-surface-variant mb-6">Distribusi Pria vs Wanita</p>
+            <div class="relative w-48 h-48 flex items-center justify-center">
+              <svg class="w-full h-full transform -rotate-90">
+                <circle
+                  class="text-secondary-fixed"
+                  cx="96"
+                  cy="96"
+                  fill="transparent"
+                  r="80"
+                  stroke="currentColor"
+                  stroke-width="20"
+                ></circle>
+                <circle
+                  class="text-primary"
+                  cx="96"
+                  cy="96"
+                  fill="transparent"
+                  r="80"
+                  stroke="currentColor"
+                  stroke-dasharray="502"
+                  stroke-dashoffset="200"
+                  stroke-width="20"
+                ></circle>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span class="text-2xl font-bold text-on-surface">450</span>
+                <span class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Total Staff</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-8 w-full">
+              <div class="bg-surface-container-low p-3 rounded-lg">
+                <p class="text-xs text-on-surface-variant">Pria</p>
+                <p class="text-lg font-bold text-primary">60%</p>
+              </div>
+              <div class="bg-surface-container-low p-3 rounded-lg">
+                <p class="text-xs text-on-surface-variant">Wanita</p>
+                <p class="text-lg font-bold text-secondary">40%</p>
+              </div>
+            </div>
+          </div>
+          <!-- Headcount per Departemen (Bar Chart) -->
+          <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <h4 class="font-headline font-bold text-lg mb-6">Headcount per Departemen</h4>
+            <div class="space-y-4">
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Engineering</span>
+                  <span class="font-bold">145</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Marketing</span>
+                  <span class="font-bold">92</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full opacity-80" style="width: 60%"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Operations</span>
+                  <span class="font-bold">110</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full opacity-70" style="width: 72%"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Finance</span>
+                  <span class="font-bold">64</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full opacity-60" style="width: 45%"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>HR</span>
+                  <span class="font-bold">39</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full opacity-50" style="width: 25%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Compensation & Benefits Summary -->
+          <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+              <div>
+                <h4 class="font-headline font-bold text-lg">Kompensasi &amp; Benefit</h4>
+                <p class="text-sm text-on-surface-variant">Ringkasan pengeluaran dan distribusi gaji</p>
+              </div>
+              <button class="text-primary text-sm font-semibold flex items-center gap-1 hover:underline">
+                Lihat Rincian <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="p-4 rounded-xl bg-surface-bright border border-slate-50">
+                <p class="text-xs text-on-surface-variant mb-2 font-medium">Biaya Payroll Total</p>
+                <p class="text-xl font-bold font-headline">Rp 5.850.000.000</p>
+                <div class="mt-4 text-[10px] text-green-600 font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[10px]">expand_less</span>
+                  +2.4% vs bulan lalu
+                </div>
+              </div>
+              <div class="p-4 rounded-xl bg-surface-bright border border-slate-50">
+                <p class="text-xs text-on-surface-variant mb-2 font-medium">Rata-rata Gaji</p>
+                <p class="text-xl font-bold font-headline">Rp 12.400.000</p>
+                <div class="mt-4 text-[10px] text-on-surface-variant font-medium">Berdasarkan 450 karyawan</div>
+              </div>
+              <div class="p-4 rounded-xl bg-surface-bright border border-slate-50">
+                <p class="text-xs text-on-surface-variant mb-2 font-medium">Rasio Benefit</p>
+                <p class="text-xl font-bold font-headline">15.2%</p>
+                <div class="mt-4 flex items-center gap-1">
+                  <div class="flex -space-x-1">
+                    <div class="w-4 h-4 rounded-full bg-primary ring-2 ring-white"></div>
+                    <div class="w-4 h-4 rounded-full bg-secondary ring-2 ring-white"></div>
+                    <div class="w-4 h-4 rounded-full bg-tertiary ring-2 ring-white"></div>
+                  </div>
+                  <span class="text-[10px] text-on-surface-variant font-medium ml-2">3 Jenis Benefit Utama</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 overflow-x-auto">
+              <table class="w-full text-left text-sm">
+                <thead>
+                  <tr class="border-b border-outline-variant text-on-surface-variant">
+                    <th class="pb-3 font-semibold">Komponen Benefit</th>
+                    <th class="pb-3 font-semibold">Alokasi</th>
+                    <th class="pb-3 font-semibold">Total Biaya</th>
+                    <th class="pb-3 font-semibold text-right">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-50">
+                  <tr>
+                    <td class="py-4 font-medium">Asuransi Kesehatan (BPJS)</td>
+                    <td class="py-4">65%</td>
+                    <td class="py-4">Rp 812.5M</td>
+                    <td class="py-4 text-right">
+                      <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold uppercase"
+                        >Terbayar</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 font-medium">Tunjangan Transportasi</td>
+                    <td class="py-4">20%</td>
+                    <td class="py-4">Rp 250M</td>
+                    <td class="py-4 text-right">
+                      <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold uppercase"
+                        >Terbayar</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 font-medium">Dana Pensiun</td>
+                    <td class="py-4">15%</td>
+                    <td class="py-4">Rp 187.5M</td>
+                    <td class="py-4 text-right">
+                      <span class="bg-amber-100 text-amber-700 px-2 py-1 rounded text-[10px] font-bold uppercase"
+                        >Pending</span
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <!-- baru end -->
+      </div>
+    </main>
+  </body>
+</html>
