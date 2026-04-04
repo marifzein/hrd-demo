@@ -104,37 +104,74 @@
       }
     </style>
     <style>
-    /* COLLAPSIBLE SIDEBAR */
-    #sidenav {
-      transition: width 0.4s ease, transform 0.4s ease;
-      width: 256px; /* 64 * 4 = 256px */
-    }
-    #sidenav.collapsed {
-      width: 72px;
-    }
-    #sidenav.collapsed .menu-text {
-      opacity: 0;
-      width: 0;
-      overflow: hidden;
-      display: inline-block;
-    }
-    #sidenav.collapsed .logo-text {
-      opacity: 0;
-      width: 0;
-      overflow: hidden;
-    }
+  /* COLLAPSIBLE SIDEBAR */
+  #sidenav {
+    transition: width 0.45s ease-in-out;
+    /*cubic-bezier(0.4, 0, 0.2, 1);*/
+    width: 256px;
+    overflow: hidden;
+  }
 
-    main {
-      transition: margin-left 0.4s ease;
-    }
-    main.collapsed {
-      margin-left: 72px;
-    }
+  #sidenav.collapsed {
+    width: 72px;
+  }
 
-    .top-header {
-      transition: width 0.4s ease, left 0.4s ease;
-    }
-  </style>
+  /* Logo */
+  .logo-section {
+    transition: padding 0.45s ease;
+  }
+  .logo-text {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* Saat Collapsed - Ini yang paling penting */
+  #sidenav.collapsed .logo-text {
+    opacity: 0;
+    transform: translateX(-30px);
+    height: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+  }
+
+  #sidenav.collapsed .logo-section {
+    padding: 20px 18px 12px 18px;
+  }
+
+  /* Menu Text */
+  /* Transisi untuk tulisan menu */
+  .menu-text {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+      white-space: nowrap;
+  }
+
+  #sidenav.collapsed .menu-text {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    display: inline-block;
+    
+  }
+
+  /* Main & Header */
+  main {
+    transition: margin-left 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  main.collapsed {
+    margin-left: 72px;
+  }
+
+  .top-header {
+    transition: left 0.45s cubic-bezier(0.4, 0, 0.2, 1), 
+                width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>
   </head>
   <body class="flex min-h-screen">
     <!-- <div id="sidebar-overlay" onclick="toggleSidenav()" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity duration-300 md:hidden"></div> -->
@@ -147,10 +184,10 @@
       class="bg-slate-900 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 overflow-y-auto flex flex-col py-6 z-50"
     >
     
-      <div class="px-6 mb-8">
-        <h1 class="text-xl font-bold text-secondary-yellow dark:text-secondary-yellow font-manrope">U T S G</h1>
-        <p class="text-[11px] text-slate-100 font-inter tracking-wide mt-1 uppercase">United Tractors Semen Gresik</p>
-        <p class="text-[11px] text-blue-400 font-inter tracking-wide mt-1">HRD Management System</p>
+      <div class="px-6 mb-8 logo-section ">
+        <h1 class="logo-text text-xl font-bold text-secondary-yellow dark:text-secondary-yellow font-manrope ">U T S G</h1>
+        <p class="logo-text text-[11px] text-slate-100 font-inter tracking-wide mt-1 uppercase ">United Tractors Semen Gresik</p>
+        <p class="logo-text text-[11px] text-blue-400 font-inter tracking-wide mt-1 ">HRD Management System</p>
       </div>
       <nav class="flex-1">
         <div class="space-y-1">
@@ -159,21 +196,21 @@
             href="#"
           >
             <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-            <span class="font-inter text-sm tracking-wide">Dashboard</span>
+            <span class="menu-text font-inter text-sm tracking-wide">Dashboard</span>
           </a>
           <a
             class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 transition-colors duration-200"
             href="#"
           >
             <span class="material-symbols-outlined" data-icon="group">group</span>
-            <span class="font-inter text-sm tracking-wide">Employees</span>
+            <span class="menu-text font-inter text-sm tracking-wide">Employees</span>
           </a>
           <a
-            class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 transition-colors duration-200"
+            class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 transition-all group"
             href="#"
           >
             <span class="material-symbols-outlined" data-icon="payments">payments</span>
-            <span class="font-inter text-sm tracking-wide">Payroll</span>
+            <span class="font-inter text-sm transition-opacity duration-300 whitespace-nowrap">Payroll</span>
           </a>
           <a
             class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 transition-colors duration-200"
@@ -739,31 +776,36 @@
       <!-- tambahan end-->
     </main>
     <script>
-    function toggleSidebar() {
-      const sidenav = document.getElementById('sidenav');
-      const main = document.getElementById('main-content');
-      const header = document.getElementById('top-header');
+  function toggleSidebar() {
+    const sidenav = document.getElementById('sidenav');
+    const main = document.getElementById('main-content');
+    const header = document.getElementById('top-header');
 
-      sidenav.classList.toggle('collapsed');
-      main.classList.toggle('collapsed');
-      
-      // Sesuaikan header
-      if (sidenav.classList.contains('collapsed')) {
-        header.style.width = 'calc(100% - 72px)';
-        header.style.left = '72px';
-      } else {
-        header.style.width = 'calc(100% - 256px)';
-        header.style.left = '256px';
-      }
+    sidenav.classList.toggle('collapsed');
+    main.classList.toggle('collapsed');
+    
+
+    
+
+    
+
+    if (sidenav.classList.contains('collapsed')) {
+      header.style.left = '72px';
+      header.style.width = 'calc(100% - 72px)';
+    } else {
+      header.style.left = '256px';
+      header.style.width = 'calc(100% - 256px)';
     }
+  }
 
-    // Default: Expanded di layar besar
-    window.onload = () => {
-      if (window.innerWidth > 1024) {
-        document.getElementById('top-header').style.width = 'calc(100% - 256px)';
-        document.getElementById('top-header').style.left = '256px';
-      }
-    };
-  </script>
+  // Default expanded
+  window.onload = () => {
+    const header = document.getElementById('top-header');
+    if (window.innerWidth > 1024) {
+      header.style.left = '256px';
+      header.style.width = 'calc(100% - 256px)';
+    }
+  };
+</script>
   </body>
 </html>

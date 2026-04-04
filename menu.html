@@ -5,7 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive SideNav</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              secondary: "#2b56b7",
+              "secondary-yellow": "#FFC107",
+              tertiary: "#843d99",
+              "on-tertiary-container": "#5a1170",
+              "surface-container-high": "#dae1ff",
+              "primary-fixed-dim": "#3e93ff",
+              background: "#f6f6ff",
+              outline: "#69769e",
+              "inverse-surface": "#000c2d",
+              "primary-dim": "#004f99",
+              "primary-container": "#60a1ff",
+              "inverse-primary": "#3591ff",
+              error: "#b31b25",
+              "surface-tint": "#005bae",
+              "on-primary-fixed-variant": "#002c5a",
+              "on-tertiary-fixed": "#3b004d",
+              "tertiary-fixed": "#ea9bff",
+              "secondary-dim": "#1a49aa",
+              "on-primary-container": "#002349",
+              "surface-container-highest": "#d3dcff",
+              "surface-bright": "#f6f6ff",
+              surface: "#f6f6ff",
+              "secondary-container": "#c3d0ff",
+              "primary-fixed": "#60a1ff",
+              "surface-dim": "#c7d3ff",
+              "tertiary-dim": "#76308c",
+              "on-background": "#202d51",
+              "surface-container-low": "#eef0ff",
+              "on-secondary-fixed-variant": "#1c4aab",
+              "on-primary": "#eff2ff",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#c3d0ff",
+              "on-tertiary": "#ffedfd",
+              "tertiary-container": "#ea9bff",
+              "on-secondary": "#f1f2ff",
+              "on-error-container": "#570008",
+              "outline-variant": "#9facd7",
+              "on-error": "#ffefee",
+              "surface-container": "#e2e7ff",
+              "surface-variant": "#d3dcff",
+              "error-dim": "#9f0519",
+              "on-primary-fixed": "#000000",
+              "on-secondary-fixed": "#002e7d",
+              "secondary-fixed-dim": "#afc2ff",
+              "on-surface-variant": "#4d5a81",
+              "error-container": "#fb5151",
+              "tertiary-fixed-dim": "#dc8ef0",
+              "on-secondary-container": "#0940a2",
+              "inverse-on-surface": "#8f9cc6",
+              primary: "#005bae",
+              "on-tertiary-fixed-variant": "#641e7a",
+              "on-surface": "#202d51",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem" },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 100,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        background-color: #f6f6ff;
+        color: #202d51;
+        font-family: "Inter", sans-serif;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+
     <style>
       * {
         margin: 0;
@@ -24,7 +124,8 @@
         position: fixed;
         left: 12px;
         top: 10px;
-        background-color: #575757;
+        /* background-color: #575757; */
+        background-color: #151e31;
         color: white;
         border: none;
         padding: 10px;
@@ -34,7 +135,8 @@
       nav {
         width: 250px;
         height: 100vh;
-        background-color: #333;
+        /* background-color: #333; */
+        background-color: #0f172a;
         transition: all 0.3s;
         padding-top: 60px;
 
@@ -56,7 +158,10 @@
             color: white;
             text-decoration: none;
             &:hover {
-              background-color: gray;
+              /* background-color: gray; */
+              /*background-color: #ded36e;*/
+              background-color: #151e31;
+              color: #fcbf49;
             }
 
             span {
@@ -98,48 +203,760 @@
           left: 0;
         }
       }
+
+      /* Pastikan di dalam <style> ada ini */
+      #sidenav.min {
+        /* width: 80px;  */
+        overflow-x: hidden;
+        /* Mencegah icon submenu meluber ke kanan */
+      }
+
+      /* teks yang hilang, icon aman */
+      #sidenav.min .menu-text {
+        display: none !important;
+      }
+
+      /* 3. Pastikan Icon Google Material TIDAK HILANG */
+      #sidenav.min .material-symbols-outlined {
+        display: block !important; /* Paksa tetap muncul */
+        margin: 0 auto; /* Biar icon ke tengah pas sidebar sempit */
+        width: 100%;
+        text-align: center;
+      }
+
+      /* 4. Sembunyikan juga panah submenu saat mengecil */
+      #sidenav.min .arrow-icon {
+        display: none !important;
+      }
+
+      .menu-text {
+        font-size: 13.5px;
+        /* line-height: 1.4; */
+        letter-spacing: 0.025em; /* tracking-wide */
+        font-weight: 500;
+        display: inline-block;
+      }
+
+      .logo-section {
+        transition:
+          opacity 0.3s ease-in-out,
+          visibility 0.3s ease-in-out;
+
+        display: block;
+      }
+
+      /* Saat sidebar mengecil (.min), hilangkan teks logo */
+      #sidenav.min .logo-section {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      /* Sembunyikan teks logo */
+      #sidenav.min .logo-text {
+        display: none !important;
+      }
     </style>
   </head>
 
   <body>
-    <button class="toggle" onclick="toggleSidenav()">
-      <i class="fa fa-bars"></i>
-    </button>
-
+    <div class="grids grid-cols-2">
+      <button class="toggle" onclick="toggleSidenav()">
+        <span class="toggle">☰</span>
+      </button>
+    </div>
     <nav id="sidenav">
+      <div class="px-6 mb-2 logo-section">
+        <!-- <h1 class="logo-text text-xl font-bold text-secondary-yellow dark:text-secondary-yellow font-manrope">
+          U T S G
+        </h1> -->
+        <!-- <p class="logo-text text-[11px] text-slate-100 font-inter tracking-wide mt-1 uppercase">
+          United Tractors Semen Gresik
+        </p> -->
+        <!-- <p class="logo-text text-[11px] text-blue-400 font-inter tracking-wide mt-1">HRD Management System</p> -->
+      </div>
+
       <ul>
         <li>
-          <a href="#"><i class="fa fa-home"></i><span>Home</span></a>
+          <a href="#" class="flex items-center justify-between w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <i class="material-symbols-outlined">dashboard</i>
+              <span class="menu-text">Dashboard</span>
+            </div>
+          </a>
         </li>
+
         <li>
-          <a href="#"><i class="fa fa-envelope"></i><span>Messages</span></a>
+          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <!-- <i class="fa fa-envelope text-center"></i>  -->
+              <i class="material-symbols-outlined" data-icon="group">group</i>
+              <span class="menu-text">Employees</span>
+            </div>
+
+            <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
+            <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
+          </a>
+
+          <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <i class="material-symbols-outlined">engineering</i><span>Input Data</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <i class="material-symbols-outlined">luggage</i><span>Cuti</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <i class="material-symbols-outlined">front_loader</i><span>Lembur</span>
+              </a>
+            </li>
+          </ul>
         </li>
+
         <li>
-          <a href="#"><i class="fa fa-cog"></i><span>Settings</span></a>
+          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <i class="material-symbols-outlined" data-icon="payments">payments</i>
+              <span class="menu-text">Payroll</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <i class="material-symbols-outlined">chart_data</i>
+              <span class="menu-text">KPI</span>
+            </div>
+            <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
+            <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
+          </a>
+
+          <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <span class="material-symbols-outlined">edit_note</span>
+                <span>Penilaian</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <span class="material-symbols-outlined">analytics</span>
+                <span>Monitoring & Tracking</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <span class="material-symbols-outlined">list_alt</span>
+                <span>Laporan & Analisis</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- <li>
+          <a href="#" class="flex items-center w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <i class="fa fa-envelope"></i><span class="menu-text">Samiadi</span>
+            </div>
+          </a>
+        </li> -->
+
+        <li>
+          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <i class="material-symbols-outlined">settings</i>
+              <span class="menu-text">Settings</span>
+            </div>
+
+            <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
+            <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
+          </a>
+
+          <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <i class="material-symbols-outlined">article_person</i><span>User Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <i class="material-symbols-outlined">encrypted</i><span>Ganti Password</span>
+              </a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
 
-    <main>
-      <header>
-        <h1>Welcome</h1>
+    <main class="flex-1 h-screen overflow-y-auto bg-slate-50">
+      <header
+        id="top-header"
+        class="top-0 right-0 h-30 z-40 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm flex justify-between items-center px-8 transition-all duration-1000"
+      >
+        <!-- <h1>Welcome</h1>
+        <h1>Welcomeasd</h1> -->
+        <div class="flex items-center gap-4 w-1/3">
+          <div class="relative w-full">
+            <div class="min-w-0 flex-1 flex flex-col justify-center mt-3 mb-3">
+              <!-- <div>
+                <img
+                  alt="User Profile"
+                  class="w-10 h-10 rounded-full object-cover"
+                  data-alt="Close-up portrait of a professional man in a tailored suit with a confident expression and clean-cut hairstyle"
+                  src="img/hrd-prof.webp"
+                />
+              </div> -->
+
+              <h4
+                class="font-headline text-2xl md:text-3xl font-extrabold tracking-tight text-primary leading-none whitespace-nowrap"
+              >
+                Executive HR Dashboard &amp; People Analytics
+              </h4>
+              <p class="text-on-surface-variant font-body">UTSG United Tractors Semen Gresik - HRD</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <button class="text-slate-500 hover:text-blue-600 transition-all relative">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+          </button>
+          <button class="text-slate-500 hover:text-blue-600 transition-all">
+            <span class="material-symbols-outlined">help_outline</span>
+          </button>
+          <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+            <div class="text-right">
+              <p class="text-sm font-semibold font-manrope">John Doe</p>
+              <p class="text-[10px] text-slate-500 uppercase tracking-wider">HRD Manager</p>
+            </div>
+            <img
+              alt="User Profile"
+              class="w-10 h-10 rounded-full object-cover"
+              data-alt="Close-up portrait of a professional man in a tailored suit with a confident expression and clean-cut hairstyle"
+              src="img/hrd-prof.webp"
+            />
+          </div>
+        </div>
       </header>
+
       <article>
-        <section>Lorem ipsum dolor sit amet...</section>
-        <section>Lorem ipsum dolor sit amet...</section>
+        <!-- <section>Lorem ipsum dolor sit amet...</section>
+        <section>Lorem ipsum dolor sit amet...</section> -->
+
+        <!--  atas-->
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-outline-variant">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-on-surface-variant font-label text-xs uppercase tracking-widest font-bold"
+                >Total Karyawan</span
+              >
+              <span class="material-symbols-outlined text-secondary bg-secondary-container p-2 rounded-lg text-sm"
+                >payments</span
+              >
+            </div>
+            <h3 class="text-2xl font-extrabold font-manrope">450</h3>
+            <p class="text-xs text-green-600 font-bold mt-2 flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">trending_up</span> +12 bulan ini
+            </p>
+          </div>
+          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-outline-variant">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-on-surface-variant font-label text-xs uppercase tracking-widest font-bold"
+                >Avg Base Salary</span
+              >
+              <span class="material-symbols-outlined text-tertiary bg-tertiary-container p-2 rounded-lg text-sm"
+                >person</span
+              >
+            </div>
+            <h3 class="text-2xl font-extrabold font-manrope">Rp 12.400.000</h3>
+            <p class="text-xs text-on-surface-variant mt-2">Berdasarkan 450 karyawan</p>
+          </div>
+          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-outline-variant">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-on-surface-variant font-label text-xs uppercase tracking-widest font-bold"
+                >Total Tunjangan</span
+              >
+              <span class="material-symbols-outlined text-primary bg-surface-container-high p-2 rounded-lg text-sm"
+                >account_balance_wallet</span
+              >
+            </div>
+            <h3 class="text-2xl font-extrabold font-manrope">Rp 1.24 M</h3>
+            <p class="text-xs text-on-surface-variant mt-2">18% of total spend</p>
+          </div>
+          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-outline-variant">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-on-surface-variant font-label text-xs uppercase tracking-widest font-bold"
+                >Benefits Ratio</span
+              >
+              <span class="material-symbols-outlined text-blue-700 bg-secondary-container p-2 rounded-lg text-sm"
+                >analytics</span
+              >
+            </div>
+            <h3 class="text-2xl font-extrabold font-manrope">1:4.8</h3>
+            <p class="text-xs text-on-surface-variant mt-2">Benefits to Salary ratio</p>
+          </div>
+        </div>
+
+        <!-- Data Visuals Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+          <div class="lg:col-span-2 bg-surface-container p-8 rounded-xl">
+            <div class="flex justify-between items-center mb-6">
+              <h4 class="font-manrope font-bold text-lg">Payroll Trend Analysis</h4>
+              <div class="flex gap-2">
+                <span class="flex items-center gap-1 text-xs font-bold text-secondary"
+                  ><span class="w-3 h-3 bg-secondary rounded-full"></span> Base Salary</span
+                >
+                <span class="flex items-center gap-1 text-xs font-bold text-tertiary"
+                  ><span class="w-3 h-3 bg-tertiary rounded-full"></span> Allowances</span
+                >
+              </div>
+            </div>
+            <!-- Mock Chart Visualization -->
+            <div class="h-64 flex items-end justify-between px-4 pb-4 gap-4">
+              <div class="flex-1 bg-surface-container-highest rounded-t-lg relative group h-[60%]">
+                <div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[80%]"></div>
+                <div class="absolute bottom-0 w-full bg-tertiary rounded-t-lg h-[20%]"></div>
+                <span
+                  class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase text-on-surface-variant"
+                  >Jul</span
+                >
+              </div>
+              <div class="flex-1 bg-surface-container-highest rounded-t-lg relative h-[70%]">
+                <div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[75%]"></div>
+                <div class="absolute bottom-0 w-full bg-tertiary rounded-t-lg h-[25%]"></div>
+                <span
+                  class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase text-on-surface-variant"
+                  >Aug</span
+                >
+              </div>
+              <div class="flex-1 bg-surface-container-highest rounded-t-lg relative h-[65%]">
+                <div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[82%]"></div>
+                <div class="absolute bottom-0 w-full bg-tertiary rounded-t-lg h-[18%]"></div>
+                <span
+                  class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase text-on-surface-variant"
+                  >Sep</span
+                >
+              </div>
+              <div class="flex-1 bg-surface-container-highest rounded-t-lg relative h-[85%]">
+                <div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[78%]"></div>
+                <div class="absolute bottom-0 w-full bg-tertiary rounded-t-lg h-[22%]"></div>
+                <span
+                  class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase text-on-surface-variant"
+                  >Oct</span
+                >
+              </div>
+              <div class="flex-1 bg-surface-container-highest rounded-t-lg relative h-[80%]">
+                <div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[80%]"></div>
+                <div class="absolute bottom-0 w-full bg-tertiary rounded-t-lg h-[20%]"></div>
+                <span
+                  class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase text-on-surface-variant"
+                  >Nov</span
+                >
+              </div>
+              <div class="flex-1 bg-surface-container-highest rounded-t-lg relative h-[95%]">
+                <div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[74%]"></div>
+                <div class="absolute bottom-0 w-full bg-tertiary rounded-t-lg h-[26%]"></div>
+                <span
+                  class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase text-on-surface-variant"
+                  >Dec</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-b-2 border-outline-variant flex flex-col justify-center"
+          >
+            <h4 class="font-manrope font-bold text-lg mb-6">Distribution by Type</h4>
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-2">
+                  <span>Gaji Pokok</span>
+                  <span>74%</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full">
+                  <div class="bg-secondary h-full rounded-full w-[74%]"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-2">
+                  <span>Bonus Kinerja</span>
+                  <span>18%</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full">
+                  <div class="bg-tertiary h-full rounded-full w-[18%]"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-2">
+                  <span>Kesehatan &amp; Kesejahteraan</span>
+                  <span>8%</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full">
+                  <div class="bg-primary-fixed-dim h-full rounded-full w-[8%]"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--  atas end-->
+
+        <!-- tambahan -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Turnover Report (Line Chart Simulation) -->
+          <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <div class="flex items-center justify-between mb-8">
+              <div>
+                <h4 class="font-headline font-bold text-lg">Laporan Turnover</h4>
+                <p class="text-sm text-on-surface-variant">Trend bulanan 12 bulan terakhir</p>
+              </div>
+              <div class="flex items-center gap-4 text-xs font-medium">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-error-dim"></span> Keluar
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-secondary"></span> Masuk
+                </div>
+              </div>
+            </div>
+            <!-- Line Chart Visual Simulation -->
+            <div class="relative h-64 w-full flex items-end justify-between px-2 pt-4 border-b border-outline-variant">
+              <div class="absolute inset-0 flex flex-col justify-between py-4 pointer-events-none">
+                <div class="border-t border-surface-container border-dashed w-full"></div>
+                <div class="border-t border-surface-container border-dashed w-full"></div>
+                <div class="border-t border-surface-container border-dashed w-full"></div>
+              </div>
+              <!-- Columns -->
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-16 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-24 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Jan</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-12 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-20 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Feb</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-10 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-28 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Mar</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-14 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-18 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Apr</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-8 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-22 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Mei</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-20 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-16 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Jun</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-18 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-12 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Jul</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-10 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-24 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Agu</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-14 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-18 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Sep</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-12 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-20 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Okt</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-16 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-14 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Nov</span>
+              </div>
+              <div class="relative flex-1 group flex flex-col items-center gap-2">
+                <div class="flex items-end gap-1 w-full justify-center">
+                  <div class="bg-error-dim w-1.5 h-12 rounded-t"></div>
+                  <div class="bg-secondary w-1.5 h-10 rounded-t"></div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant">Des</span>
+              </div>
+            </div>
+          </div>
+          <!-- Gender Ratio (Donut Chart Simulation) -->
+          <div
+            class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center"
+          >
+            <h4 class="font-headline font-bold text-lg mb-1">Rasio Gender</h4>
+            <p class="text-sm text-on-surface-variant mb-6">Distribusi Pria vs Wanita</p>
+            <div class="relative w-48 h-48 flex items-center justify-center">
+              <svg class="w-full h-full transform -rotate-90">
+                <circle
+                  class="text-secondary-fixed"
+                  cx="96"
+                  cy="96"
+                  fill="transparent"
+                  r="80"
+                  stroke="currentColor"
+                  stroke-width="20"
+                ></circle>
+                <circle
+                  class="text-primary"
+                  cx="96"
+                  cy="96"
+                  fill="transparent"
+                  r="80"
+                  stroke="currentColor"
+                  stroke-dasharray="502"
+                  stroke-dashoffset="200"
+                  stroke-width="20"
+                ></circle>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span class="text-2xl font-bold text-on-surface">450</span>
+                <span class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Total Staff</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-8 w-full">
+              <div class="bg-blue-600 text-slate-50 p-3 rounded-lg">
+                <p class="text-xs">Pria</p>
+                <p class="text-lg font-bold">60%</p>
+              </div>
+              <div class="bg-surface-container-low p-3 rounded-lg">
+                <p class="text-xs text-on-surface-variant">Wanita</p>
+                <p class="text-lg font-bold text-secondary">40%</p>
+              </div>
+            </div>
+          </div>
+          <!-- Headcount per Departemen (Bar Chart) -->
+          <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <h4 class="font-headline font-bold text-lg mb-6">Headcount per Departemen</h4>
+            <div class="space-y-4">
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Engineering</span>
+                  <span class="font-bold">145</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Marketing</span>
+                  <span class="font-bold">92</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full opacity-80" style="width: 60%"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Operations</span>
+                  <span class="font-bold">110</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full opacity-70" style="width: 72%"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Finance</span>
+                  <span class="font-bold">64</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full opacity-60" style="width: 45%"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>HR</span>
+                  <span class="font-bold">39</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full opacity-50" style="width: 25%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- comben -->
+          <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+              <div>
+                <h4 class="font-headline font-bold text-lg">Kompensasi &amp; Benefit</h4>
+                <p class="text-sm text-on-surface-variant">Ringkasan pengeluaran dan distribusi gaji</p>
+              </div>
+              <button class="text-primary text-sm font-semibold flex items-center gap-1 hover:underline">
+                Lihat Rincian <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="p-4 rounded-xl bg-surface-bright border border-slate-50">
+                <p class="text-xs text-on-surface-variant mb-2 font-medium">Biaya Payroll Total</p>
+                <p class="text-xl font-bold font-headline">Rp 5.850.000.000</p>
+                <div class="mt-4 text-[10px] text-green-600 font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[10px]">expand_less</span>
+                  +2.4% vs bulan lalu
+                </div>
+              </div>
+              <div class="p-4 rounded-xl bg-surface-bright border border-slate-50">
+                <p class="text-xs text-on-surface-variant mb-2 font-medium">Rata-rata Gaji</p>
+                <p class="text-xl font-bold font-headline">Rp 12.400.000</p>
+                <div class="mt-4 text-[10px] text-on-surface-variant font-medium">Berdasarkan 450 karyawan</div>
+              </div>
+              <div class="p-4 rounded-xl bg-surface-bright border border-slate-50">
+                <p class="text-xs text-on-surface-variant mb-2 font-medium">Rasio Benefit</p>
+                <p class="text-xl font-bold font-headline">15.2%</p>
+                <div class="mt-4 flex items-center gap-1">
+                  <div class="flex -space-x-1">
+                    <div class="w-4 h-4 rounded-full bg-primary ring-2 ring-white"></div>
+                    <div class="w-4 h-4 rounded-full bg-secondary ring-2 ring-white"></div>
+                    <div class="w-4 h-4 rounded-full bg-tertiary ring-2 ring-white"></div>
+                  </div>
+                  <span class="text-[10px] text-on-surface-variant font-medium ml-2">3 Jenis Benefit Utama</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 overflow-x-auto">
+              <table class="w-full text-left text-sm">
+                <thead>
+                  <tr class="border-b border-outline-variant text-on-surface-variant">
+                    <th class="pb-3 font-semibold">Komponen Benefit</th>
+                    <th class="pb-3 font-semibold">Alokasi</th>
+                    <th class="pb-3 font-semibold">Total Biaya</th>
+                    <th class="pb-3 font-semibold text-right">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-50">
+                  <tr>
+                    <td class="py-4 font-medium">Asuransi Kesehatan (BPJS)</td>
+                    <td class="py-4">65%</td>
+                    <td class="py-4">Rp 812.5M</td>
+                    <td class="py-4 text-right">
+                      <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold uppercase"
+                        >Terbayar</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 font-medium">Tunjangan Transportasi</td>
+                    <td class="py-4">20%</td>
+                    <td class="py-4">Rp 250M</td>
+                    <td class="py-4 text-right">
+                      <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold uppercase"
+                        >Terbayar</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 font-medium">Dana Pensiun</td>
+                    <td class="py-4">15%</td>
+                    <td class="py-4">Rp 187.5M</td>
+                    <td class="py-4 text-right">
+                      <span class="bg-amber-100 text-amber-700 px-2 py-1 rounded text-[10px] font-bold uppercase"
+                        >Pending</span
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <!-- tambahan end-->
       </article>
     </main>
 
     <script>
       function toggleSidenav() {
         const sidenav = document.querySelector("#sidenav");
+        const allSubmenus = document.querySelectorAll(".submenu-container");
+        // const logoSection = document.querySelector("#logo-section");
+        const allArrows = document.querySelectorAll(".arrow-icon"); // Mengambil SEMUA panah
 
         if (window.innerWidth <= 768) {
           sidenav.classList.remove("min");
           sidenav.classList.toggle("active");
+
+          // logoSection.classList.remove("min");
+          // logoSection.classList.toggle("active");
         } else {
           sidenav.classList.remove("active");
           sidenav.classList.toggle("min");
+
+          // logoSection.classList.remove("active");
+          // logoSection.classList.toggle("min");
+
+          // Jika sidebar mengecil (min), paksa SEMUA submenu tutup dan SEMUA panah reset
+          if (sidenav.classList.contains("min")) {
+            // Tutup semua submenu
+            allSubmenus.forEach((sub) => {
+              sub.style.maxHeight = "0px";
+            });
+
+            // Putar balik SEMUA panah ke posisi awal (0 derajat)
+            allArrows.forEach((arr) => {
+              arr.style.transform = "rotate(0deg)";
+            });
+          }
+        }
+      }
+
+      function toggleSubmenu(e) {
+        // const submenu = document.getElementsByClassName("submenu-settings");
+        const anchor = e.currentTarget;
+        // Mencari <ul> yang ada tepat setelah <a>
+        const submenu = anchor.nextElementSibling;
+        const arrow = anchor.querySelector(".arrow-icon");
+
+        if (!submenu) return; // Jaga-jaga kalau menu gak punya sub
+
+        // Jika sedang tertutup, buka (kasih height secukupnya)
+        if (submenu.style.maxHeight === "0px" || submenu.style.maxHeight === "") {
+          // submenu.style.maxHeight = "150px"; // Sesuaikan tinggi submenu
+          submenu.style.maxHeight = submenu.scrollHeight + "px"; // Otomatis hitung tinggi konten
+          arrow.style.transform = "rotate(180deg)";
+        } else {
+          // Jika sedang terbuka, tutup
+          submenu.style.maxHeight = "0px";
+          if (arrow) arrow.style.transform = "rotate(0deg)";
+          // arrow.style.transform = "rotate(0deg)";
         }
       }
     </script>
