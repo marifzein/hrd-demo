@@ -1,23 +1,22 @@
 <!doctype html>
-
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Employee Intake | Executive Architect</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HRD Intelligence - UTSG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
       rel="stylesheet"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
+
     <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -25,6 +24,7 @@
           extend: {
             colors: {
               secondary: "#2b56b7",
+              "secondary-yellow": "#FFC107",
               tertiary: "#843d99",
               "on-tertiary-container": "#5a1170",
               "surface-container-high": "#dae1ff",
@@ -86,123 +86,445 @@
         },
       };
     </script>
+
     <style>
       .material-symbols-outlined {
         font-variation-settings:
           "FILL" 0,
-          "wght" 400,
+          "wght" 150,
           "GRAD" 0,
           "opsz" 24;
-        vertical-align: middle;
       }
-      .form-gradient-btn {
-        background: linear-gradient(135deg, #005bae 0%, #1e293b 100%);
+      .mso {
+        font-family: "Material Symbols Outlined";
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 500,
+          "GRAD" 0;
+        font-size: 24px;
       }
-      .glass-panel {
+      body {
+        background-color: #f6f6ff;
+        color: #202d51;
+        font-family: "Inter", sans-serif;
+      }
+      .glass-card {
         background: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(12px);
       }
     </style>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        overflow: hidden;
+      }
+
+      button.toggle {
+        z-index: 1000;
+        position: fixed;
+        left: 12px;
+        top: 10px;
+        /* background-color: #575757; */
+        background-color: #151e31;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      nav {
+        width: 250px;
+        height: 100vh;
+        /* background-color: #333; */
+        background-color: #0f172a;
+        transition: all 0.3s;
+        padding-top: 60px;
+        z-index: 90;
+
+        &.min {
+          width: 60px;
+
+          span {
+            opacity: 0;
+          }
+        }
+
+        ul {
+          color: white;
+
+          a {
+            display: flex;
+            gap: 10px;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            &:hover {
+              /* background-color: gray; */
+              /*background-color: #ded36e;*/
+              background-color: #151e31;
+              color: #fcbf49;
+            }
+
+            span {
+              transition: opacity 0.3s ease-in-out;
+            }
+          }
+        }
+      }
+
+      main {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        height: 80px;
+        /* display: flex; */
+        /* align-items: center; */
+        /* padding: 20px; */
+        border-bottom: 1px solid #ccc;
+      }
+
+      article {
+        padding: 20px;
+      }
+
+      @media (max-width: 768px) {
+        /* Paksa body dan main tidak bisa scroll ke samping */
+        body,
+        html {
+          overflow-x: hidden !important;
+          position: relative;
+        }
+
+        main {
+          width: 100vw;
+          overflow-x: hidden;
+          padding-left: 15px !important; /* Sesuaikan jarak agar simetris */
+          padding-right: 15px !important;
+        }
+
+        header {
+          /* padding-left: 55px; */
+          padding-left: 65px !important;
+          padding-top: 10px;
+        }
+        /* 2. Kecilkan teks judul utama */
+        header h1 {
+          font-size: 1.1rem !important; /* Dari text-2xl ke ukuran lebih kecil */
+          line-height: 1.2;
+          margin-bottom: 2px;
+        }
+
+        /* 3. Kecilkan teks sub-judul (United Tractors...) */
+        header p {
+          font-size: 0.75rem !important;
+          max-width: 250px;
+          /* Biar teksnya ngebungkus rapi, gak memanjang keluar layar */
+
+          /* max-width: 70vw;  */
+          /* Teks gak bakal maksa lebar layar lagi */
+          /* overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; */
+        }
+
+        /* 4. Sembunyikan atau kecilkan teks deskripsi dashboard di mobile */
+        .dashboard-desc {
+          /* display: none; */
+          /*  di HP diumpetin biar gak semrawut */
+        }
+
+        nav {
+          position: fixed;
+          left: -250px;
+          top: 0;
+        }
+
+        nav.active {
+          left: 0;
+        }
+
+        /* tambahan button logout */
+        #sidenav {
+          height: 100vh !important; /* Paksa tinggi selayar HP */
+          display: flex !important;
+          flex-direction: column !important;
+          position: fixed;
+          top: 0;
+          left: -260px; /* Kondisi tertutup */
+          width: 260px;
+          /* z-index: 1100; */
+          transition: all 0.3s ease;
+        }
+
+        #sidenav.active {
+          left: 0; /* Kondisi terbuka */
+        }
+        /* tambahan button logout */
+      }
+
+      /* Pastikan di dalam <style> ada ini */
+      #sidenav.min {
+        /* width: 80px;  */
+        overflow-x: hidden;
+        /* Mencegah icon submenu meluber ke kanan */
+      }
+
+      /* teks yang hilang, icon aman */
+      #sidenav.min .menu-text {
+        display: none !important;
+      }
+
+      /* 3. Pastikan Icon Google Material TIDAK HILANG */
+      #sidenav.min .material-symbols-outlined {
+        display: block !important; /* Paksa tetap muncul */
+        margin: 0 auto; /* Biar icon ke tengah pas sidebar sempit */
+        width: 100%;
+        text-align: center;
+      }
+
+      /* 4. Sembunyikan juga panah submenu saat mengecil */
+      #sidenav.min .arrow-icon {
+        display: none !important;
+      }
+
+      .menu-text {
+        font-size: 13.5px;
+        /* line-height: 1.4; */
+        letter-spacing: 0.025em; /* tracking-wide */
+        font-weight: 500;
+        display: inline-block;
+      }
+
+      .logo-section {
+        transition:
+          opacity 0.3s ease-in-out,
+          visibility 0.3s ease-in-out;
+
+        display: block;
+      }
+
+      /* Saat sidebar mengecil (.min), hilangkan teks logo */
+      #sidenav.min .logo-section {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      /* Sembunyikan teks logo */
+      #sidenav.min .logo-text {
+        display: none !important;
+      }
+    </style>
   </head>
-  <body class="bg-surface font-body text-on-surface">
-    <!-- SideNavBar Shell -->
-    <aside
-      class="bg-slate-900 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 overflow-y-auto flex flex-col h-full py-6 z-50"
-    >
-      <div class="px-6 mb-8">
-        <h1 class="text-xl font-bold text-slate-50 dark:text-white font-headline">Executive Architect</h1>
-        <p class="text-xs text-slate-400 font-label tracking-wide uppercase mt-1">HR Management System</p>
-      </div>
-      <nav class="flex-1 space-y-1">
-        <a
-          class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 transition-colors duration-200"
-          href="#"
-        >
-          <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-          <span class="font-label text-sm tracking-wide">Dashboard</span>
-        </a>
-        <a class="flex items-center gap-3 px-4 py-3 text-slate-50 border-l-4 border-blue-600 bg-slate-800/40" href="#">
-          <span class="material-symbols-outlined" data-icon="group">group</span>
-          <span class="font-label text-sm tracking-wide">Employees</span>
-        </a>
-        <a
-          class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 transition-colors duration-200"
-          href="#"
-        >
-          <span class="material-symbols-outlined" data-icon="payments">payments</span>
-          <span class="font-label text-sm tracking-wide">Payroll</span>
-        </a>
-        <a
-          class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 transition-colors duration-200"
-          href="#"
-        >
-          <span class="material-symbols-outlined" data-icon="schedule">schedule</span>
-          <span class="font-label text-sm tracking-wide">Time Tracking</span>
-        </a>
-        <a
-          class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 transition-colors duration-200"
-          href="#"
-        >
-          <span class="material-symbols-outlined" data-icon="insights">insights</span>
-          <span class="font-label text-sm tracking-wide">Performance</span>
-        </a>
-        <a
-          class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 transition-colors duration-200"
-          href="#"
-        >
-          <span class="material-symbols-outlined" data-icon="settings">settings</span>
-          <span class="font-label text-sm tracking-wide">Settings</span>
-        </a>
-      </nav>
-      <div class="px-4 mt-auto">
-        <button
-          class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-headline text-sm font-bold rounded-xl transition-all active:scale-95"
-        >
-          <span class="material-symbols-outlined" data-icon="add">add</span>
-          New Request
-        </button>
-      </div>
-    </aside>
-    <!-- TopNavBar Shell -->
-    <header
-      class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm flex justify-between items-center px-8 ml-64"
-    >
-      <div class="flex items-center flex-1">
-        <div class="relative w-full max-w-md">
-          <span
-            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg"
-            data-icon="search"
-            >search</span
+
+  <body>
+    <!-- tombol baru hamburger -->
+
+    <!-- tombol baru hamburger -->
+
+    <div class="grids grid-cols-2">
+      <!-- lawas -->
+      <button class="toggle" onclick="toggleSidenav()">
+        <span class="toggle">☰</span>
+      </button>
+    </div>
+
+    <nav id="sidenav" class="transition-all duration-300 flex flex-col">
+      <!-- <div class="flex-1"> -->
+      <!-- <nav id="sidenav"> -->
+
+      <!-- <div class="px-6 mb-2 logo-section"> -->
+      <!-- <h1 class="logo-text text-xl font-bold text-secondary-yellow dark:text-secondary-yellow font-manrope">
+          U T S G
+        </h1> -->
+      <!-- <p class="logo-text text-[11px] text-slate-100 font-inter tracking-wide mt-1 uppercase">
+          United Tractors Semen Gresik
+        </p> -->
+      <!-- <p class="logo-text text-[11px] text-blue-400 font-inter tracking-wide mt-1">HRD Management System</p> -->
+      <!-- </div> -->
+
+      <ul>
+        <li>
+          <a href="dashboard.html" class="flex items-center justify-between w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <i class="material-symbols-outlined">dashboard</i>
+              <span class="menu-text">Dashboard</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <!-- <i class="fa fa-envelope text-center"></i>  -->
+              <i class="material-symbols-outlined" data-icon="group">group</i>
+              <span class="menu-text">Employees</span>
+            </div>
+
+            <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
+            <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
+          </a>
+
+          <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <i class="material-symbols-outlined">engineering</i><span>Input Data</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <i class="material-symbols-outlined">luggage</i><span>Cuti</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <i class="material-symbols-outlined">front_loader</i><span>Lembur</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <i class="material-symbols-outlined" data-icon="payments">payments</i>
+              <span class="menu-text">Payroll</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <i class="material-symbols-outlined">chart_data</i>
+              <span class="menu-text">KPI</span>
+            </div>
+            <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
+            <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
+          </a>
+
+          <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <span class="material-symbols-outlined">edit_note</span>
+                <span>Penilaian</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <span class="material-symbols-outlined">analytics</span>
+                <span>Monitoring & Tracking</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <span class="material-symbols-outlined">list_alt</span>
+                <span>Laporan & Analisis</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- <li>
+          <a href="#" class="flex items-center w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <i class="fa fa-envelope"></i><span class="menu-text">Samiadi</span>
+            </div>
+          </a>
+        </li> -->
+
+        <li>
+          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+            <div class="flex items-center gap-4">
+              <i class="material-symbols-outlined">settings</i>
+              <span class="menu-text">Settings</span>
+            </div>
+
+            <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
+            <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
+          </a>
+
+          <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <i class="material-symbols-outlined">article_person</i><span>User Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                <i class="material-symbols-outlined">encrypted</i><span>Ganti Password</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <div class="p-4 border-t border-white/10 mt-auto">
+          <a
+            href="index.html"
+            class="flex items-center gap-4 px-4 py-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all group"
           >
-          <input
-            class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all"
-            placeholder="Search employee records..."
-            type="text"
-          />
+            <span class="material-symbols-outlined shrink-0">logout</span>
+            <span class="logo-text font-medium group-hover:font-bold transition-all">Keluar</span>
+          </a>
         </div>
-      </div>
-      <div class="flex items-center gap-6">
-        <button class="text-slate-500 hover:text-blue-600 transition-all duration-300">
-          <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-        </button>
-        <button class="text-slate-500 hover:text-blue-600 transition-all duration-300">
-          <span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
-        </button>
-        <div class="flex items-center gap-3 pl-4 border-l border-outline-variant/30">
-          <div class="text-right">
-            <p class="text-xs font-bold text-on-surface leading-none">Admin Profile</p>
-            <p class="text-[10px] text-on-surface-variant font-medium mt-1">System Administrator</p>
+      </ul>
+      <!-- </div> -->
+    </nav>
+
+    <main class="flex-1 h-screen overflow-y-auto bg-slate-50">
+      <header
+        class="top-0 right-0 h-20 bg-slate-50/80 backdrop-blur-md shadow-sm flex items-center justify-between px-4 md:px-8 transition-all duration-1000 p-8"
+      >
+        <!-- Kiri: Judul -->
+        <div class="flex items-center gap-3 min-w-0 flex-1 md:flex-none">
+          <div class="min-w-0">
+            <h4
+              class="dashboard-desc font-headline text-lg md:text-2xl font-extrabold tracking-tight text-primary leading-none whitespace-nowrap overflow-hidden text-ellipsis"
+            >
+              Executive HRD Dashboard & People Analytics
+            </h4>
+            <p>United Tractors Semen Gresik</p>
           </div>
-          <img
-            class="w-10 h-10 rounded-full object-cover border-2 border-primary-container"
-            data-alt="close-up portrait of professional male executive in dark blue suit against a clean studio background"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjg_3P6qda_QyIRtoJa5CFEThZS2iHIHDRpeuBhUHRLPez3OUUiZDvph-L5WgNtKu1LTIptzgCFycFLEGo9WuQ3UXjdDs5TNqj3nD_OViCvEzmeOSlO3lpZ2Dm1Gt8RvPM4HT1F8thH73x2boMbWNTeDEBJQIQnxkcDwa7RqSrqy5o_L9TMkGbNsxurAd91xNDKpN6tSmhMcClLUCL0mrGLqx0diuFArUKuQd108o9HMAiwvCW6c1aUXw8hNaZ0bN6Wwc9tqVjF74"
-          />
         </div>
-      </div>
-    </header>
-    <!-- Main Content Canvas -->
-    <main class="ml-64 pt-24 pb-12 px-8 min-h-screen bg-surface">
+
+        <!-- Kanan: Logo UTSG + Notif + Profile -->
+        <div class="flex items-center gap-3 md:gap-6 flex-shrink-0">
+          <!-- Logo UTSG -->
+          <img src="img/utsg-t.png" width="42" class="hidden sm:block" alt="UTSG" />
+
+          <!-- Notification -->
+          <button class="text-slate-500 hover:text-blue-600 transition-all relative flex-shrink-0">
+            <span class="mso text-2xl">notifications</span>
+            <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+          </button>
+
+          <!-- Profile -->
+          <div class="flex items-center gap-2 md:gap-3 pl-2 md:pl-4 border-l border-slate-200">
+            <div class="text-right hidden md:block">
+              <p class="text-sm font-semibold font-manrope leading-tight">John Doe</p>
+              <p class="text-[10px] text-slate-500 uppercase tracking-wider">HRD Manager</p>
+            </div>
+            <img
+              src="img/hrd-prof.webp"
+              class="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover border border-white shadow-sm flex-shrink-0"
+              alt="John Doe"
+            />
+          </div>
+        </div>
+      </header>
+
+      <!-- inputan emp -->
+
       <div class="max-w-5xl mx-auto">
         <!-- Header & Step Indicator -->
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
@@ -214,7 +536,7 @@
             </p>
           </div>
           <div class="flex items-center gap-3 p-1 bg-surface-container rounded-full px-4">
-            <span class="text-xs font-bold text-secondary">ARCHITECT CORE v2.4</span>
+            <span class="text-xs font-bold text-secondary">UTSG HR Intelligence v2.4</span>
             <div class="w-2 h-2 rounded-full bg-secondary"></div>
           </div>
         </div>
@@ -283,7 +605,7 @@
                     class="w-full bg-surface-container-highest/30 border-none rounded-lg px-4 py-3 text-sm font-bold text-secondary cursor-not-allowed"
                     readonly=""
                     type="text"
-                    value="ARCH-2023-0892"
+                    value="UTSG-2023-0892"
                   />
                 </div>
                 <div class="space-y-1">
@@ -480,7 +802,7 @@
                 >
                 <input
                   class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-4 py-3 text-sm"
-                  placeholder="Senior Systems Architect"
+                  placeholder="Senior Engineer"
                   type="text"
                 />
               </div>
@@ -637,32 +959,104 @@
           <div class="mt-4" id="form-feedback"></div>
         </form>
       </div>
+      <!-- inputan emp end -->
     </main>
-    <!-- Success Feedback Overlay (Hidden by default) -->
-    <div
-      class="fixed inset-0 z-[100] bg-inverse-surface/40 backdrop-blur-sm hidden flex items-center justify-center p-6"
-      id="success-overlay"
-    >
-      <div class="bg-surface-container-lowest p-10 rounded-3xl max-w-md w-full text-center shadow-2xl">
-        <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-          <span
-            class="material-symbols-outlined text-white text-4xl"
-            data-icon="check_circle"
-            style="font-variation-settings: &quot;FILL&quot; 1"
-            >check_circle</span
-          >
-        </div>
-        <h2 class="text-2xl font-headline font-extrabold text-on-surface">Submission Successful</h2>
-        <p class="text-on-surface-variant mt-4">
-          Employee record <strong>ARCH-2023-0892</strong> has been successfully initialized in the system.
-        </p>
-        <div class="mt-8 grid grid-cols-2 gap-4">
-          <button class="px-6 py-3 bg-surface-container-high text-secondary font-bold text-sm rounded-xl">
-            View Profile
-          </button>
-          <button class="px-6 py-3 form-gradient-btn text-white font-bold text-sm rounded-xl">Back to List</button>
-        </div>
-      </div>
-    </div>
+
+    <script>
+      function toggleSidenav() {
+        const sidenav = document.querySelector("#sidenav");
+        const allSubmenus = document.querySelectorAll(".submenu-container");
+        const allArrows = document.querySelectorAll(".arrow-icon");
+
+        if (window.innerWidth <= 768) {
+          // --- MODE MOBILE ---
+          sidenav.classList.remove("min");
+          sidenav.classList.toggle("active");
+
+          // FIX: Jika sidebar ditutup (active hilang), paksa semua submenu mingkem
+          if (!sidenav.classList.contains("active")) {
+            allSubmenus.forEach((sub) => {
+              sub.style.maxHeight = "0px";
+            });
+            allArrows.forEach((arr) => {
+              arr.style.transform = "rotate(0deg)";
+            });
+          }
+        } else {
+          // --- MODE DESKTOP ---
+          sidenav.classList.remove("active");
+          sidenav.classList.toggle("min");
+
+          // Jika sidebar mengecil (min), paksa SEMUA submenu tutup
+          if (sidenav.classList.contains("min")) {
+            allSubmenus.forEach((sub) => {
+              sub.style.maxHeight = "0px";
+            });
+            allArrows.forEach((arr) => {
+              arr.style.transform = "rotate(0deg)";
+            });
+          }
+        }
+      }
+
+      function toggleSidenav44444() {
+        const sidenav = document.querySelector("#sidenav");
+        const allSubmenus = document.querySelectorAll(".submenu-container");
+        // const logoSection = document.querySelector("#logo-section");
+        const allArrows = document.querySelectorAll(".arrow-icon"); // Mengambil SEMUA panah
+
+        if (window.innerWidth <= 768) {
+          sidenav.classList.remove("min");
+          sidenav.classList.toggle("active");
+
+          // logoSection.classList.remove("min");
+          // logoSection.classList.toggle("active");
+        } else {
+          sidenav.classList.remove("active");
+          sidenav.classList.toggle("min");
+
+          // logoSection.classList.remove("active");
+          // logoSection.classList.toggle("min");
+
+          // Jika sidebar mengecil (min), paksa SEMUA submenu tutup dan SEMUA panah reset
+          if (sidenav.classList.contains("min")) {
+            // Tutup semua submenu
+            allSubmenus.forEach((sub) => {
+              sub.style.maxHeight = "0px";
+            });
+
+            // Putar balik SEMUA panah ke posisi awal (0 derajat)
+            allArrows.forEach((arr) => {
+              arr.style.transform = "rotate(0deg)";
+            });
+          }
+        }
+      }
+
+      function toggleSubmenu(e) {
+        const anchor = e.currentTarget;
+        const submenu = anchor.nextElementSibling;
+        const arrow = anchor.querySelector(".arrow-icon");
+
+        if (!submenu) return;
+
+        // --- LOGIKA ACCORDION: TUTUP SUBMENU LAIN ---
+        const isOpen = submenu.style.maxHeight !== "0px" && submenu.style.maxHeight !== "";
+
+        // Ambil semua container submenu dan panah yang ada di sidenav
+        const allSubmenus = document.querySelectorAll(".submenu-container");
+        const allArrows = document.querySelectorAll(".arrow-icon");
+
+        // Tutup SEMUA submenu dan reset SEMUA panah terlebih dahulu
+        allSubmenus.forEach((sub) => (sub.style.maxHeight = "0px"));
+        allArrows.forEach((arr) => (arr.style.transform = "rotate(0deg)"));
+
+        // --- BUKA YANG DIKLIK (Jika tadinya tertutup) ---
+        if (!isOpen) {
+          submenu.style.maxHeight = submenu.scrollHeight + "px";
+          if (arrow) arrow.style.transform = "rotate(180deg)";
+        }
+      }
+    </script>
   </body>
 </html>
