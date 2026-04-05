@@ -227,14 +227,15 @@
 
         /* 3. Kecilkan teks sub-judul (United Tractors...) */
         header p {
-          /* font-size: 0.75rem !important; 
-          max-width: 250px;  */
+          font-size: 0.75rem !important;
+          max-width: 250px;
           /* Biar teksnya ngebungkus rapi, gak memanjang keluar layar */
 
-          max-width: 70vw; /* Teks gak bakal maksa lebar layar lagi */
-          overflow: hidden;
+          /* max-width: 70vw;  */
+          /* Teks gak bakal maksa lebar layar lagi */
+          /* overflow: hidden;
           text-overflow: ellipsis;
-          white-space: nowrap;
+          white-space: nowrap; */
         }
 
         /* 4. Sembunyikan atau kecilkan teks deskripsi dashboard di mobile */
@@ -489,20 +490,21 @@
       </header> -->
 
       <header class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div class="flex flex-col min-w-0">
-          <h1 class="logo-text text-xl md:text-2xl font-bold text-secondary-yellow leading-none">U T S G</h1>
+        <div class="flex flex-col min-w-0 pl-12">
+          <!-- <h1 class="logo-text text-xl md:text-2xl font-bold text-secondary-yellow leading-none">U T S G</h1>
           <p class="text-[11px] md:text-sm text-slate-500 truncate md:whitespace-normal">
             United Tractors Semen Gresik - HRD
           </p>
           <p class="text-[10px] text-blue-600 font-medium uppercase mt-0.5">
             Executive HR Dashboard & People Analytics
-          </p>
+          </p> -->
+          <img src="img/utsg-t.png" width="50px" />
         </div>
 
         <div class="flex items-center gap-3 self-end md:self-center">
           <div class="text-right hidden md:block">
-            <p class="text-xs font-bold text-slate-800">Administrator</p>
-            <p class="text-[10px] text-slate-500">Super Admin</p>
+            <p class="text-sm font-semibold font-manrope">John Doe</p>
+            <p class="text-[10px] text-slate-500 uppercase tracking-wider">HRD Manager</p>
           </div>
           <img src="img/hrd-prof.webp" class="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="User" />
         </div>
