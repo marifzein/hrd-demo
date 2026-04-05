@@ -970,6 +970,31 @@
       }
 
       function toggleSubmenu(e) {
+        const anchor = e.currentTarget;
+        const submenu = anchor.nextElementSibling;
+        const arrow = anchor.querySelector(".arrow-icon");
+
+        if (!submenu) return;
+
+        // --- LOGIKA ACCORDION: TUTUP SUBMENU LAIN ---
+        const isOpen = submenu.style.maxHeight !== "0px" && submenu.style.maxHeight !== "";
+
+        // Ambil semua container submenu dan panah yang ada di sidenav
+        const allSubmenus = document.querySelectorAll(".submenu-container");
+        const allArrows = document.querySelectorAll(".arrow-icon");
+
+        // Tutup SEMUA submenu dan reset SEMUA panah terlebih dahulu
+        allSubmenus.forEach((sub) => (sub.style.maxHeight = "0px"));
+        allArrows.forEach((arr) => (arr.style.transform = "rotate(0deg)"));
+
+        // --- BUKA YANG DIKLIK (Jika tadinya tertutup) ---
+        if (!isOpen) {
+          submenu.style.maxHeight = submenu.scrollHeight + "px";
+          if (arrow) arrow.style.transform = "rotate(180deg)";
+        }
+      }
+
+      function toggleSubmenu2222222(e) {
         // const submenu = document.getElementsByClassName("submenu-settings");
         const anchor = e.currentTarget;
         // Mencari <ul> yang ada tepat setelah <a>
