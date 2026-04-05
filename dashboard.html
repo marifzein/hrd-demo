@@ -253,6 +253,24 @@
         nav.active {
           left: 0;
         }
+
+        /* tambahan button logout */
+        #sidenav {
+          height: 100vh !important; /* Paksa tinggi selayar HP */
+          display: flex !important;
+          flex-direction: column !important;
+          position: fixed;
+          top: 0;
+          left: -260px; /* Kondisi tertutup */
+          width: 260px;
+          z-index: 1100;
+          transition: all 0.3s ease;
+        }
+
+        #sidenav.active {
+          left: 0; /* Kondisi terbuka */
+        }
+        /* tambahan button logout */
       }
 
       /* Pastikan di dalam <style> ada ini */
