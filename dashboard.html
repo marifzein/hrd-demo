@@ -199,6 +199,20 @@
       }
 
       @media (max-width: 768px) {
+        /* Paksa body dan main tidak bisa scroll ke samping */
+        body,
+        html {
+          overflow-x: hidden !important;
+          position: relative;
+        }
+
+        main {
+          width: 100vw;
+          overflow-x: hidden;
+          padding-left: 15px !important; /* Sesuaikan jarak agar simetris */
+          padding-right: 15px !important;
+        }
+
         header {
           /* padding-left: 55px; */
           padding-left: 65px !important;
@@ -213,8 +227,14 @@
 
         /* 3. Kecilkan teks sub-judul (United Tractors...) */
         header p {
-          font-size: 0.75rem !important; /* text-xs */
-          max-width: 250px; /* Biar teksnya ngebungkus rapi, gak memanjang keluar layar */
+          /* font-size: 0.75rem !important; 
+          max-width: 250px;  */
+          /* Biar teksnya ngebungkus rapi, gak memanjang keluar layar */
+
+          max-width: 70vw; /* Teks gak bakal maksa lebar layar lagi */
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
 
         /* 4. Sembunyikan atau kecilkan teks deskripsi dashboard di mobile */
@@ -429,25 +449,20 @@
     </nav>
 
     <main class="flex-1 h-screen overflow-y-auto bg-slate-50">
-      <header
-        id="top-header"
+      <!-- <p class="text-on-surface-variant font-body">UTSG United Tractors Semen Gresik - HRD</p> -->
+      <!-- <div class="min-w-0 flex-1 flex flex-col justify-center mt-3 mb-3 p-10"> -->
+
+      <!-- <header
         class="top-0 right-0 h-30 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm flex justify-between items-center px-8 transition-all duration-1000"
       >
-        <!-- <h1>Welcome</h1>
-        <h1>Welcomeasd</h1> -->
         <div class="flex items-center gap-4 w-1/3">
           <div class="relative w-full">
-            <!-- <div class="min-w-0 flex-1 flex flex-col justify-center mt-3 mb-3 p-10"> -->
             <div class="min-w-0 grid grid-cols-2 justify-center mt-3 mb-3 p-10">
-              <!-- <img src="img/utsg-t.png" width="50px" /> -->
-
               <h4
                 class="dashboard-desc font-headline text-xl md:text-2xl font-extrabold tracking-tight text-primary leading-none whitespace-nowrap"
               >
                 Executive HRD Dashboard &amp; People Analytics
-                <!-- Executive HR Dashboard -->
               </h4>
-              <!-- <p class="text-on-surface-variant font-body">UTSG United Tractors Semen Gresik - HRD</p> -->
             </div>
           </div>
         </div>
@@ -457,9 +472,7 @@
             <span class="mso">notifications</span>
             <span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
           </button>
-          <!-- <button class="text-slate-500 hover:text-blue-600 transition-all">
-            <span class="mso">help_outline</span>
-          </button> -->
+
           <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
             <div class="text-right">
               <p class="text-sm font-semibold font-manrope">John Doe</p>
@@ -472,6 +485,26 @@
               src="img/hrd-prof.webp"
             />
           </div>
+        </div>
+      </header> -->
+
+      <header class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex flex-col min-w-0">
+          <h1 class="logo-text text-xl md:text-2xl font-bold text-secondary-yellow leading-none">U T S G</h1>
+          <p class="text-[11px] md:text-sm text-slate-500 truncate md:whitespace-normal">
+            United Tractors Semen Gresik - HRD
+          </p>
+          <p class="text-[10px] text-blue-600 font-medium uppercase mt-0.5">
+            Executive HR Dashboard & People Analytics
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3 self-end md:self-center">
+          <div class="text-right hidden md:block">
+            <p class="text-xs font-bold text-slate-800">Administrator</p>
+            <p class="text-[10px] text-slate-500">Super Admin</p>
+          </div>
+          <img src="img/hrd-prof.webp" class="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="User" />
         </div>
       </header>
 
