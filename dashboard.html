@@ -91,9 +91,17 @@
       .material-symbols-outlined {
         font-variation-settings:
           "FILL" 0,
-          "wght" 100,
+          "wght" 150,
           "GRAD" 0,
           "opsz" 24;
+      }
+      .mso {
+        font-family: "Material Symbols Outlined";
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 500,
+          "GRAD" 0;
+        font-size: 24px;
       }
       body {
         background-color: #f6f6ff;
@@ -255,14 +263,62 @@
       #sidenav.min .logo-text {
         display: none !important;
       }
+
+      /* ================== MOBILE HAMBURGER IMPROVEMENT ================== */
+      #mobile-hamburger {
+        transition: all 0.3s ease;
+      }
+
+      #mobile-hamburger:active {
+        transform: scale(0.95);
+        background-color: #f1f5f9;
+      }
+
+      /* Pastikan sidebar mobile muncul di atas segalanya */
+      @media (max-width: 768px) {
+        nav#sidenav {
+          z-index: 60 !important;
+          box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header tidak menutupi hamburger */
+        header#top-header {
+          padding-left: 70px !important; /* beri ruang untuk hamburger */
+        }
+
+        /* Hilangkan tombol toggle lama kalau masih ada */
+        .toggle {
+          display: none !important;
+        }
+      }
+
+      /* Optional: buat icon hamburger lebih tebal */
+      #mobile-hamburger .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 600,
+          "GRAD" 0,
+          "opsz" 24;
+      }
     </style>
   </head>
 
   <body>
+    <!-- tombol baru hamburger -->
+    <button
+      id="mobile-hamburger"
+      onclick="toggleSidenav()"
+      class="fixed top-4 left-4 z-50 bg-white shadow-lg w-11 h-11 flex items-center justify-center rounded-2xl border border-slate-200 md:hidden"
+    >
+      <span class="material-symbols-outlined text-2xl text-slate-700">menu</span>
+    </button>
+    <!-- tombol baru hamburger -->
+
     <div class="grids grid-cols-2">
-      <button class="toggle" onclick="toggleSidenav()">
+      <!-- lawas -->
+      <!-- <button class="toggle" onclick="toggleSidenav()">
         <span class="toggle">☰</span>
-      </button>
+      </button> -->
     </div>
     <nav id="sidenav">
       <div class="px-6 mb-2 logo-section">
@@ -422,11 +478,11 @@
         </div>
         <div class="flex items-center gap-6">
           <button class="text-slate-500 hover:text-blue-600 transition-all relative">
-            <span class="material-symbols-outlined">notifications</span>
+            <span class="mso">notifications</span>
             <span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
           </button>
           <button class="text-slate-500 hover:text-blue-600 transition-all">
-            <span class="material-symbols-outlined">help_outline</span>
+            <span class="mso">help_outline</span>
           </button>
           <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
             <div class="text-right">
@@ -449,58 +505,57 @@
 
         <!--  atas-->
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-outline-variant">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-on-surface-variant font-label text-xs uppercase tracking-widest font-bold"
-                >Total Karyawan</span
-              >
-              <span class="material-symbols-outlined text-secondary bg-secondary-container p-2 rounded-lg text-sm"
-                >payments</span
-              >
+        <!-- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8"> -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start justify-between">
+            <div>
+              <p class="text-sm font-medium text-on-surface-variant mb-1">Total Karyawan</p>
+              <h3 class="text-3xl font-bold font-headline text-primary">450</h3>
+              <p class="text-xs text-green-600 mt-2 flex items-center gap-1 font-medium">
+                <span class="mso">trending_up</span>
+                +12 bulan ini
+              </p>
             </div>
-            <h3 class="text-2xl font-extrabold font-manrope">450</h3>
-            <p class="text-xs text-green-600 font-bold mt-2 flex items-center gap-1">
-              <span class="material-symbols-outlined text-sm">trending_up</span> +12 bulan ini
-            </p>
-          </div>
-          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-outline-variant">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-on-surface-variant font-label text-xs uppercase tracking-widest font-bold"
-                >Avg Base Salary</span
-              >
-              <span class="material-symbols-outlined text-tertiary bg-tertiary-container p-2 rounded-lg text-sm"
-                >person</span
-              >
+            <div class="p-3 bg-primary-container text-on-primary-container rounded-lg">
+              <span class="mso">groups</span>
             </div>
-            <h3 class="text-2xl font-extrabold font-manrope">Rp 12.400.000</h3>
-            <p class="text-xs text-on-surface-variant mt-2">Berdasarkan 450 karyawan</p>
           </div>
-          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-outline-variant">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-on-surface-variant font-label text-xs uppercase tracking-widest font-bold"
-                >Total Tunjangan</span
-              >
-              <span class="material-symbols-outlined text-primary bg-surface-container-high p-2 rounded-lg text-sm"
-                >account_balance_wallet</span
-              >
+          <!-- Kehadiran Hari Ini -->
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start justify-between">
+            <div>
+              <p class="text-sm font-medium text-on-surface-variant mb-1">Kehadiran Hari Ini</p>
+              <h3 class="text-3xl font-bold font-headline text-on-surface">94%</h3>
+              <div class="w-full bg-surface-container-highest h-1.5 rounded-full mt-4">
+                <div class="bg-primary h-full rounded-full" style="width: 94%"></div>
+              </div>
             </div>
-            <h3 class="text-2xl font-extrabold font-manrope">Rp 1.24 M</h3>
-            <p class="text-xs text-on-surface-variant mt-2">18% of total spend</p>
-          </div>
-          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-2 border-outline-variant">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-on-surface-variant font-label text-xs uppercase tracking-widest font-bold"
-                >Benefits Ratio</span
-              >
-              <span class="material-symbols-outlined text-blue-700 bg-secondary-container p-2 rounded-lg text-sm"
-                >analytics</span
-              >
+            <div class="p-3 bg-secondary-container text-on-secondary-container rounded-lg">
+              <span class="mso">event_available</span>
             </div>
-            <h3 class="text-2xl font-extrabold font-manrope">1:4.8</h3>
-            <p class="text-xs text-on-surface-variant mt-2">Benefits to Salary ratio</p>
           </div>
-        </div>
+          <!-- Pengajuan Pending -->
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start justify-between">
+            <div>
+              <p class="text-sm font-medium text-on-surface-variant mb-1">Pengajuan Pending</p>
+              <h3 class="text-3xl font-bold font-headline text-on-surface">12</h3>
+              <p class="text-xs text-secondary mt-2 font-medium">Membutuhkan persetujuan</p>
+            </div>
+            <div class="p-3 bg-tertiary-container text-on-tertiary-container rounded-lg">
+              <span class="mso">pending_actions</span>
+            </div>
+          </div>
+          <!-- Anggaran Payroll -->
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start justify-between">
+            <div>
+              <p class="text-sm font-medium text-on-surface-variant mb-1">Anggaran Payroll</p>
+              <h3 class="text-3xl font-bold font-headline text-on-surface text-nowrap">Rp 1.2M</h3>
+              <p class="text-xs text-on-surface-variant mt-2 font-medium">Bulan berjalan</p>
+            </div>
+            <div class="p-3 bg-surface-container-high text-on-surface rounded-lg">
+              <span class="mso">payments</span>
+            </div>
+          </div>
+        </section>
 
         <!-- Data Visuals Section -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
@@ -837,7 +892,7 @@
               </div>
               <div class="p-4 rounded-xl bg-surface-bright border border-slate-50">
                 <p class="text-xs text-on-surface-variant mb-2 font-medium">Rata-rata Gaji</p>
-                <p class="text-xl font-bold font-headline">Rp 12.400.000</p>
+                <p class="text-xl font-bold font-headline">Rp 32.400.000</p>
                 <div class="mt-4 text-[10px] text-on-surface-variant font-medium">Berdasarkan 450 karyawan</div>
               </div>
               <div class="p-4 rounded-xl bg-surface-bright border border-slate-50">
@@ -867,7 +922,7 @@
                   <tr>
                     <td class="py-4 font-medium">Asuransi Kesehatan (BPJS)</td>
                     <td class="py-4">65%</td>
-                    <td class="py-4">Rp 812.5M</td>
+                    <td class="py-4">Rp 1.5M</td>
                     <td class="py-4 text-right">
                       <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold uppercase"
                         >Terbayar</span
@@ -877,7 +932,7 @@
                   <tr>
                     <td class="py-4 font-medium">Tunjangan Transportasi</td>
                     <td class="py-4">20%</td>
-                    <td class="py-4">Rp 250M</td>
+                    <td class="py-4">Rp 250Jt</td>
                     <td class="py-4 text-right">
                       <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold uppercase"
                         >Terbayar</span
@@ -887,7 +942,7 @@
                   <tr>
                     <td class="py-4 font-medium">Dana Pensiun</td>
                     <td class="py-4">15%</td>
-                    <td class="py-4">Rp 187.5M</td>
+                    <td class="py-4">Rp 786Jt</td>
                     <td class="py-4 text-right">
                       <span class="bg-amber-100 text-amber-700 px-2 py-1 rounded text-[10px] font-bold uppercase"
                         >Pending</span
