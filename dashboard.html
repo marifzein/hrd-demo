@@ -321,100 +321,103 @@
       </button>
     </div>
 
-    <nav id="sidenav">
-      <!-- <div class="px-6 mb-2 logo-section"> -->
-      <!-- <h1 class="logo-text text-xl font-bold text-secondary-yellow dark:text-secondary-yellow font-manrope">
+    <nav id="sidenav" class="transition-all duration-300 flex flex-col">
+      <div class="flex-1">
+        <!-- <nav id="sidenav"> -->
+
+        <!-- <div class="px-6 mb-2 logo-section"> -->
+        <!-- <h1 class="logo-text text-xl font-bold text-secondary-yellow dark:text-secondary-yellow font-manrope">
           U T S G
         </h1> -->
-      <!-- <p class="logo-text text-[11px] text-slate-100 font-inter tracking-wide mt-1 uppercase">
+        <!-- <p class="logo-text text-[11px] text-slate-100 font-inter tracking-wide mt-1 uppercase">
           United Tractors Semen Gresik
         </p> -->
-      <!-- <p class="logo-text text-[11px] text-blue-400 font-inter tracking-wide mt-1">HRD Management System</p> -->
-      <!-- </div> -->
+        <!-- <p class="logo-text text-[11px] text-blue-400 font-inter tracking-wide mt-1">HRD Management System</p> -->
+        <!-- </div> -->
 
-      <ul>
-        <li>
-          <a href="#" class="flex items-center justify-between w-full px-4 py-3">
-            <div class="flex items-center gap-4">
-              <i class="material-symbols-outlined">dashboard</i>
-              <span class="menu-text">Dashboard</span>
-            </div>
-          </a>
-        </li>
+        <ul>
+          <li>
+            <a href="#" class="flex items-center justify-between w-full px-4 py-3">
+              <div class="flex items-center gap-4">
+                <i class="material-symbols-outlined">dashboard</i>
+                <span class="menu-text">Dashboard</span>
+              </div>
+            </a>
+          </li>
 
-        <li>
-          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
-            <div class="flex items-center gap-4">
-              <!-- <i class="fa fa-envelope text-center"></i>  -->
-              <i class="material-symbols-outlined" data-icon="group">group</i>
-              <span class="menu-text">Employees</span>
-            </div>
+          <li>
+            <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+              <div class="flex items-center gap-4">
+                <!-- <i class="fa fa-envelope text-center"></i>  -->
+                <i class="material-symbols-outlined" data-icon="group">group</i>
+                <span class="menu-text">Employees</span>
+              </div>
 
-            <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
-            <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
-          </a>
+              <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
+              <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
+            </a>
 
-          <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
-            <li>
-              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
-                <i class="material-symbols-outlined">engineering</i><span>Input Data</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
-                <i class="material-symbols-outlined">luggage</i><span>Cuti</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
-                <i class="material-symbols-outlined">front_loader</i><span>Lembur</span>
-              </a>
-            </li>
-          </ul>
-        </li>
+            <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
+              <li>
+                <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                  <i class="material-symbols-outlined">engineering</i><span>Input Data</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                  <i class="material-symbols-outlined">luggage</i><span>Cuti</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                  <i class="material-symbols-outlined">front_loader</i><span>Lembur</span>
+                </a>
+              </li>
+            </ul>
+          </li>
 
-        <li>
-          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
-            <div class="flex items-center gap-4">
-              <i class="material-symbols-outlined" data-icon="payments">payments</i>
-              <span class="menu-text">Payroll</span>
-            </div>
-          </a>
-        </li>
+          <li>
+            <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+              <div class="flex items-center gap-4">
+                <i class="material-symbols-outlined" data-icon="payments">payments</i>
+                <span class="menu-text">Payroll</span>
+              </div>
+            </a>
+          </li>
 
-        <li>
-          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
-            <div class="flex items-center gap-4">
-              <i class="material-symbols-outlined">chart_data</i>
-              <span class="menu-text">KPI</span>
-            </div>
-            <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
-            <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
-          </a>
+          <li>
+            <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+              <div class="flex items-center gap-4">
+                <i class="material-symbols-outlined">chart_data</i>
+                <span class="menu-text">KPI</span>
+              </div>
+              <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
+              <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
+            </a>
 
-          <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
-            <li>
-              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
-                <span class="material-symbols-outlined">edit_note</span>
-                <span>Penilaian</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
-                <span class="material-symbols-outlined">analytics</span>
-                <span>Monitoring & Tracking</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
-                <span class="material-symbols-outlined">list_alt</span>
-                <span>Laporan & Analisis</span>
-              </a>
-            </li>
-          </ul>
-        </li>
+            <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
+              <li>
+                <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                  <span class="material-symbols-outlined">edit_note</span>
+                  <span>Penilaian</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                  <span class="material-symbols-outlined">analytics</span>
+                  <span>Monitoring & Tracking</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                  <span class="material-symbols-outlined">list_alt</span>
+                  <span>Laporan & Analisis</span>
+                </a>
+              </li>
+            </ul>
+          </li>
 
-        <!-- <li>
+          <!-- <li>
           <a href="#" class="flex items-center w-full px-4 py-3">
             <div class="flex items-center gap-4">
               <i class="fa fa-envelope"></i><span class="menu-text">Samiadi</span>
@@ -422,31 +425,42 @@
           </a>
         </li> -->
 
-        <li>
-          <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
-            <div class="flex items-center gap-4">
-              <i class="material-symbols-outlined">settings</i>
-              <span class="menu-text">Settings</span>
-            </div>
+          <li>
+            <a href="#" onclick="toggleSubmenu(event)" class="flex items-center justify-between w-full px-4 py-3">
+              <div class="flex items-center gap-4">
+                <i class="material-symbols-outlined">settings</i>
+                <span class="menu-text">Settings</span>
+              </div>
 
-            <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
-            <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
-          </a>
+              <!-- <i class="fa fa-chevron-down text-[10px] arrow-icon transition-transform duration-300"></i> -->
+              <i class="material-symbols-outlined arrow-icon">arrow_drop_down</i>
+            </a>
 
-          <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
-            <li>
-              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
-                <i class="material-symbols-outlined">article_person</i><span>User Profile</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
-                <i class="material-symbols-outlined">encrypted</i><span>Ganti Password</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+            <ul class="submenu-container overflow-hidden max-h-0 transition-all duration-300 bg-black/10">
+              <li>
+                <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                  <i class="material-symbols-outlined">article_person</i><span>User Profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="pl-12 py-2 text-sm flex items-center gap-2">
+                  <i class="material-symbols-outlined">encrypted</i><span>Ganti Password</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="p-4 border-t border-white/10">
+        <a
+          href="index.html"
+          class="flex items-center gap-4 px-4 py-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all group"
+        >
+          <span class="material-symbols-outlined shrink-0">logout</span>
+          <span class="logo-text font-medium group-hover:font-bold transition-all">Keluar</span>
+        </a>
+      </div>
     </nav>
 
     <main class="flex-1 h-screen overflow-y-auto bg-slate-50">
