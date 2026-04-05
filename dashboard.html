@@ -453,7 +453,7 @@
       <!-- <p class="text-on-surface-variant font-body">UTSG United Tractors Semen Gresik - HRD</p> -->
       <!-- <div class="min-w-0 flex-1 flex flex-col justify-center mt-3 mb-3 p-10"> -->
 
-      <header
+      <!-- <header
         class="top-0 right-0 h-30 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm flex justify-between items-center px-8 transition-all duration-1000"
       >
         <div class="flex items-center gap-4 w-1/3">
@@ -487,32 +487,47 @@
             />
           </div>
         </div>
-      </header>
-
-      <!-- <header class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div class="dashboard-desc flex flex-col min-w-0 pl-12">
-          <h1 class="logo-text text-xl md:text-2xl font-bold text-secondary-yellow leading-none">U T S G</h1>
-          <p class="text-[11px] md:text-sm text-slate-500 truncate md:whitespace-normal">
-            United Tractors Semen Gresik - HRD
-          </p>
-          <p class="text-[10px] text-blue-600 font-medium uppercase mt-0.5">
-            Executive HR Dashboard & People Analytics
-          </p>
-        </div>
-
-        <div class="flex items-center gap-3 self-end md:self-center">
-          <img src="img/utsg-t.png" width="50px" />
-          <button class="text-slate-500 hover:text-blue-600 transition-all relative">
-            <span class="mso">notifications</span>
-            <span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
-          </button>
-          <div class="text-right hidden md:block">
-            <p class="text-sm font-semibold font-manrope">John Doe</p>
-            <p class="text-[10px] text-slate-500 uppercase tracking-wider">HRD Manager</p>
-          </div>
-          <img src="img/hrd-prof.webp" class="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="User" />
-        </div>
       </header> -->
+
+      <header
+        class="top-0 right-0 h-20 bg-slate-50/80 backdrop-blur-md shadow-sm flex items-center justify-between px-4 md:px-8 transition-all duration-1000"
+      >
+        <!-- Kiri: Judul -->
+        <div class="flex items-center gap-3 min-w-0 flex-1 md:flex-none">
+          <div class="min-w-0">
+            <h4
+              class="dashboard-desc font-headline text-lg md:text-2xl font-extrabold tracking-tight text-primary leading-none whitespace-nowrap overflow-hidden text-ellipsis"
+            >
+              Executive HRD Dashboard & People Analytics
+            </h4>
+          </div>
+        </div>
+
+        <!-- Kanan: Logo UTSG + Notif + Profile -->
+        <div class="flex items-center gap-3 md:gap-6 flex-shrink-0">
+          <!-- Logo UTSG -->
+          <img src="img/utsg-t.png" width="42" class="hidden sm:block" alt="UTSG" />
+
+          <!-- Notification -->
+          <button class="text-slate-500 hover:text-blue-600 transition-all relative flex-shrink-0">
+            <span class="mso text-2xl">notifications</span>
+            <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+          </button>
+
+          <!-- Profile -->
+          <div class="flex items-center gap-2 md:gap-3 pl-2 md:pl-4 border-l border-slate-200">
+            <div class="text-right hidden md:block">
+              <p class="text-sm font-semibold font-manrope leading-tight">John Doe</p>
+              <p class="text-[10px] text-slate-500 uppercase tracking-wider">HRD Manager</p>
+            </div>
+            <img
+              src="img/hrd-prof.webp"
+              class="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover border border-white shadow-sm flex-shrink-0"
+              alt="John Doe"
+            />
+          </div>
+        </div>
+      </header>
 
       <article>
         <!-- <section>Lorem ipsum dolor sit amet...</section>
