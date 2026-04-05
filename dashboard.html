@@ -263,43 +263,6 @@
       #sidenav.min .logo-text {
         display: none !important;
       }
-
-      /* ================== MOBILE HAMBURGER IMPROVEMENT ================== */
-      #mobile-hamburger {
-        transition: all 0.3s ease;
-      }
-
-      #mobile-hamburger:active {
-        transform: scale(0.95);
-        background-color: #f1f5f9;
-      }
-
-      /* Pastikan sidebar mobile muncul di atas segalanya */
-      @media (max-width: 768px) {
-        nav#sidenav {
-          z-index: 60 !important;
-          box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Header tidak menutupi hamburger */
-        header#top-header {
-          padding-left: 70px !important; /* beri ruang untuk hamburger */
-        }
-
-        /* Hilangkan tombol toggle lama kalau masih ada */
-        .toggle {
-          display: none !important;
-        }
-      }
-
-      /* Optional: buat icon hamburger lebih tebal */
-      #mobile-hamburger .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 600,
-          "GRAD" 0,
-          "opsz" 24;
-      }
     </style>
   </head>
 
@@ -955,62 +918,6 @@
 
     <script>
       function toggleSidenav() {
-        const sidenav = document.getElementById("sidenav");
-        const hamburgerIcon = document.getElementById("hamburger-icon");
-
-        if (window.innerWidth <= 768) {
-          // === MOBILE ===
-          if (sidenav.classList.contains("active")) {
-            // Tutup sidebar
-            sidenav.classList.remove("active");
-            hamburgerIcon.textContent = "menu";
-          } else {
-            // Buka sidebar
-            sidenav.classList.add("active");
-            hamburgerIcon.textContent = "close";
-          }
-        } else {
-          // === DESKTOP (collapse mode) ===
-          sidenav.classList.toggle("min");
-
-          // Tutup semua submenu saat di-collapse
-          document.querySelectorAll(".submenu-container").forEach((sub) => {
-            sub.style.maxHeight = "0px";
-          });
-          document.querySelectorAll(".arrow-icon").forEach((arrow) => {
-            arrow.style.transform = "rotate(0deg)";
-          });
-        }
-      }
-
-      function toggleSubmenu(e) {
-        const anchor = e.currentTarget;
-        const submenu = anchor.nextElementSibling;
-        const arrow = anchor.querySelector(".arrow-icon");
-
-        if (!submenu) return;
-
-        if (submenu.style.maxHeight === "0px" || submenu.style.maxHeight === "") {
-          submenu.style.maxHeight = submenu.scrollHeight + "px";
-          if (arrow) arrow.style.transform = "rotate(180deg)";
-        } else {
-          submenu.style.maxHeight = "0px";
-          if (arrow) arrow.style.transform = "rotate(0deg)";
-        }
-      }
-
-      // Tutup sidebar otomatis jika klik di luar (opsional tapi recommended)
-      document.addEventListener("click", function (e) {
-        const sidenav = document.getElementById("sidenav");
-        const hamburger = document.getElementById("mobile-hamburger");
-
-        if (window.innerWidth <= 768 && !sidenav.contains(e.target) && !hamburger.contains(e.target)) {
-          sidenav.classList.remove("active");
-          document.getElementById("hamburger-icon").textContent = "menu";
-        }
-      });
-
-      function toggleSidenav_asli() {
         const sidenav = document.querySelector("#sidenav");
         const allSubmenus = document.querySelectorAll(".submenu-container");
         // const logoSection = document.querySelector("#logo-section");
@@ -1044,7 +951,7 @@
         }
       }
 
-      function toggleSubmenu_asli(e) {
+      function toggleSubmenu(e) {
         // const submenu = document.getElementsByClassName("submenu-settings");
         const anchor = e.currentTarget;
         // Mencari <ul> yang ada tepat setelah <a>
