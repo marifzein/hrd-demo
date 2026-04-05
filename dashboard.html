@@ -305,21 +305,16 @@
 
   <body>
     <!-- tombol baru hamburger -->
-    <button
-      id="mobile-hamburger"
-      onclick="toggleSidenav()"
-      class="fixed top-4 left-4 z-50 bg-white shadow-lg w-11 h-11 flex items-center justify-center rounded-2xl border border-slate-200 md:hidden"
-    >
-      <span class="material-symbols-outlined text-2xl text-slate-700">menu</span>
-    </button>
+
     <!-- tombol baru hamburger -->
 
     <div class="grids grid-cols-2">
       <!-- lawas -->
-      <!-- <button class="toggle" onclick="toggleSidenav()">
+      <button class="toggle" onclick="toggleSidenav()">
         <span class="toggle">☰</span>
-      </button> -->
+      </button>
     </div>
+
     <nav id="sidenav">
       <div class="px-6 mb-2 logo-section">
         <!-- <h1 class="logo-text text-xl font-bold text-secondary-yellow dark:text-secondary-yellow font-manrope">
@@ -960,27 +955,61 @@
 
     <script>
       function toggleSidenav() {
-        const sidenav = document.querySelector("#sidenav");
-        const hamburger = document.getElementById("mobile-hamburger");
-        const allSubmenus = document.querySelectorAll(".submenu-container");
-        const allArrows = document.querySelectorAll(".arrow-icon");
+        const sidenav = document.getElementById("sidenav");
+        const hamburgerIcon = document.getElementById("hamburger-icon");
 
         if (window.innerWidth <= 768) {
-          // Mobile behavior
-          sidenav.classList.toggle("active");
-          sidenav.classList.remove("min");
-
-          // Optional: tambah efek overlay gelap (bisa ditambah nanti)
+          // === MOBILE ===
+          if (sidenav.classList.contains("active")) {
+            // Tutup sidebar
+            sidenav.classList.remove("active");
+            hamburgerIcon.textContent = "menu";
+          } else {
+            // Buka sidebar
+            sidenav.classList.add("active");
+            hamburgerIcon.textContent = "close";
+          }
         } else {
-          // Desktop behavior (collapse sidebar)
+          // === DESKTOP (collapse mode) ===
           sidenav.classList.toggle("min");
 
-          if (sidenav.classList.contains("min")) {
-            allSubmenus.forEach(sub => sub.style.maxHeight = "0px");
-            allArrows.forEach(arr => arr.style.transform = "rotate(0deg)");
-          }
+          // Tutup semua submenu saat di-collapse
+          document.querySelectorAll(".submenu-container").forEach((sub) => {
+            sub.style.maxHeight = "0px";
+          });
+          document.querySelectorAll(".arrow-icon").forEach((arrow) => {
+            arrow.style.transform = "rotate(0deg)";
+          });
         }
       }
+
+      function toggleSubmenu(e) {
+        const anchor = e.currentTarget;
+        const submenu = anchor.nextElementSibling;
+        const arrow = anchor.querySelector(".arrow-icon");
+
+        if (!submenu) return;
+
+        if (submenu.style.maxHeight === "0px" || submenu.style.maxHeight === "") {
+          submenu.style.maxHeight = submenu.scrollHeight + "px";
+          if (arrow) arrow.style.transform = "rotate(180deg)";
+        } else {
+          submenu.style.maxHeight = "0px";
+          if (arrow) arrow.style.transform = "rotate(0deg)";
+        }
+      }
+
+      // Tutup sidebar otomatis jika klik di luar (opsional tapi recommended)
+      document.addEventListener("click", function (e) {
+        const sidenav = document.getElementById("sidenav");
+        const hamburger = document.getElementById("mobile-hamburger");
+
+        if (window.innerWidth <= 768 && !sidenav.contains(e.target) && !hamburger.contains(e.target)) {
+          sidenav.classList.remove("active");
+          document.getElementById("hamburger-icon").textContent = "menu";
+        }
+      });
+
       function toggleSidenav_asli() {
         const sidenav = document.querySelector("#sidenav");
         const allSubmenus = document.querySelectorAll(".submenu-container");
@@ -1015,7 +1044,7 @@
         }
       }
 
-      function toggleSubmenu(e) {
+      function toggleSubmenu_asli(e) {
         // const submenu = document.getElementsByClassName("submenu-settings");
         const anchor = e.currentTarget;
         // Mencari <ul> yang ada tepat setelah <a>
