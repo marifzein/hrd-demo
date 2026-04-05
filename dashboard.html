@@ -938,6 +938,42 @@
       function toggleSidenav() {
         const sidenav = document.querySelector("#sidenav");
         const allSubmenus = document.querySelectorAll(".submenu-container");
+        const allArrows = document.querySelectorAll(".arrow-icon");
+
+        if (window.innerWidth <= 768) {
+          // --- MODE MOBILE ---
+          sidenav.classList.remove("min");
+          sidenav.classList.toggle("active");
+
+          // FIX: Jika sidebar ditutup (active hilang), paksa semua submenu mingkem
+          if (!sidenav.classList.contains("active")) {
+            allSubmenus.forEach((sub) => {
+              sub.style.maxHeight = "0px";
+            });
+            allArrows.forEach((arr) => {
+              arr.style.transform = "rotate(0deg)";
+            });
+          }
+        } else {
+          // --- MODE DESKTOP ---
+          sidenav.classList.remove("active");
+          sidenav.classList.toggle("min");
+
+          // Jika sidebar mengecil (min), paksa SEMUA submenu tutup
+          if (sidenav.classList.contains("min")) {
+            allSubmenus.forEach((sub) => {
+              sub.style.maxHeight = "0px";
+            });
+            allArrows.forEach((arr) => {
+              arr.style.transform = "rotate(0deg)";
+            });
+          }
+        }
+      }
+
+      function toggleSidenav44444() {
+        const sidenav = document.querySelector("#sidenav");
+        const allSubmenus = document.querySelectorAll(".submenu-container");
         // const logoSection = document.querySelector("#logo-section");
         const allArrows = document.querySelectorAll(".arrow-icon"); // Mengambil SEMUA panah
 
@@ -991,28 +1027,6 @@
         if (!isOpen) {
           submenu.style.maxHeight = submenu.scrollHeight + "px";
           if (arrow) arrow.style.transform = "rotate(180deg)";
-        }
-      }
-
-      function toggleSubmenu2222222(e) {
-        // const submenu = document.getElementsByClassName("submenu-settings");
-        const anchor = e.currentTarget;
-        // Mencari <ul> yang ada tepat setelah <a>
-        const submenu = anchor.nextElementSibling;
-        const arrow = anchor.querySelector(".arrow-icon");
-
-        if (!submenu) return; // Jaga-jaga kalau menu gak punya sub
-
-        // Jika sedang tertutup, buka (kasih height secukupnya)
-        if (submenu.style.maxHeight === "0px" || submenu.style.maxHeight === "") {
-          // submenu.style.maxHeight = "150px"; // Sesuaikan tinggi submenu
-          submenu.style.maxHeight = submenu.scrollHeight + "px"; // Otomatis hitung tinggi konten
-          arrow.style.transform = "rotate(180deg)";
-        } else {
-          // Jika sedang terbuka, tutup
-          submenu.style.maxHeight = "0px";
-          if (arrow) arrow.style.transform = "rotate(0deg)";
-          // arrow.style.transform = "rotate(0deg)";
         }
       }
     </script>
